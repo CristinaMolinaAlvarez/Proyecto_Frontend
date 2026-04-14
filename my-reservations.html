@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis reservas | Reserva Pádel</title>
+  <meta name="description" content="Listado de reservas del usuario">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <h1>Reserva Pádel</h1>
+        <a href="my-reservations.html" class="usuario-icono" aria-label="Mi perfil">👤</a>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html">Inicio</a></li>
+          <li><a href="courts.html">Pistas</a></li>
+          <li><a href="availability.html">Disponibilidad</a></li>
+          <li><a href="reservation.html">Reservar</a></li>
+          <li><a href="my-reservations.html" aria-current="page">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="caja">
+      <div class="titulo-bloque">
+        <div>
+          <h2>Mis reservas</h2>
+          <p>Consulta tus reservas activas y canceladas.</p>
+        </div>
+        <a href="reservation.html" class="boton-principal">Nueva reserva</a>
+      </div>
+
+      <div class="tarjetas una-columna">
+        <article class="tarjeta reserva-card">
+          <h3>Reserva #001</h3>
+          <p><strong>Pista:</strong> Pista 1</p>
+          <p><strong>Fecha:</strong> 15/04/2026</p>
+          <p><strong>Hora:</strong> 18:00</p>
+          <p><strong>Duración:</strong> 90 minutos</p>
+          <p><strong>Estado:</strong> Activa</p>
+        </article>
+
+        <article class="tarjeta reserva-card">
+          <h3>Reserva #002</h3>
+          <p><strong>Pista:</strong> Pista 2</p>
+          <p><strong>Fecha:</strong> 18/04/2026</p>
+          <p><strong>Hora:</strong> 11:00</p>
+          <p><strong>Duración:</strong> 60 minutos</p>
+          <p><strong>Estado:</strong> Activa</p>
+        </article>
+
+        <article class="tarjeta reserva-card reserva-cancelada">
+          <h3>Reserva #003</h3>
+          <p><strong>Pista:</strong> Pista 3</p>
+          <p><strong>Fecha:</strong> 09/04/2026</p>
+          <p><strong>Hora:</strong> 19:00</p>
+          <p><strong>Duración:</strong> 60 minutos</p>
+          <p><strong>Estado:</strong> Cancelada</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Proyecto PAT · Frontend HTML y CSS · Reserva de pistas de pádel</p>
+    </div>
+  </footer>
+
+</body>
+</html>

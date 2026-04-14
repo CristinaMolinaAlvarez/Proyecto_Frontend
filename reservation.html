@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva reserva | Reserva Pádel</title>
+  <meta name="description" content="Formulario de reserva de pistas de pádel">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <h1>Reserva Pádel</h1>
+        <a href="my-reservations.html" class="usuario-icono" aria-label="Mi perfil">👤</a>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html">Inicio</a></li>
+          <li><a href="courts.html">Pistas</a></li>
+          <li><a href="availability.html">Disponibilidad</a></li>
+          <li><a href="reservation.html" aria-current="page">Reservar</a></li>
+          <li><a href="my-reservations.html">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor pagina-formulario">
+    <section class="form-box">
+      <h2>Nueva reserva</h2>
+      <p>Formulario preparado para conectarlo más adelante al backend.</p>
+
+      <form action="my-reservations.html" method="get" class="formulario">
+        <fieldset>
+          <legend>Datos de la reserva</legend>
+
+          <div class="campo">
+            <label for="pista">Pista</label>
+            <select id="pista" name="idPista" required>
+              <option value="">Selecciona una pista</option>
+              <option value="1">Pista 1</option>
+              <option value="2">Pista 2</option>
+              <option value="3">Pista 3</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="fechaReserva">Fecha</label>
+            <input type="date" id="fechaReserva" name="fechaReserva" required>
+          </div>
+
+          <div class="campo">
+            <label for="horaInicio">Hora de inicio</label>
+            <select id="horaInicio" name="horaInicio" required>
+              <option value="">Selecciona una hora</option>
+              <option value="09:00">09:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="18:00">18:00</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="duracionMinutos">Duración</label>
+            <select id="duracionMinutos" name="duracionMinutos" required>
+              <option value="">Selecciona duración</option>
+              <option value="60">60 minutos</option>
+              <option value="90">90 minutos</option>
+              <option value="120">120 minutos</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <button type="submit">Confirmar reserva</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Proyecto PAT · Frontend HTML y CSS · Reserva de pistas de pádel</p>
+    </div>
+  </footer>
+
+</body>
+</html>

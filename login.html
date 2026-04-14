@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Reserva Pádel</title>
+  <meta name="description" content="Acceso de usuarios a la web de reserva de pádel">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <h1>Reserva Pádel</h1>
+        <a href="index.html" class="boton-secundario">Volver</a>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="courts.html">Pistas</a></li>
+          <li><a href="availability.html">Disponibilidad</a></li>
+          <li><a href="login.html" aria-current="page">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor pagina-formulario">
+    <section class="form-box">
+      <h2>Iniciar sesión</h2>
+      <p>Introduce tus datos de acceso para entrar en tu zona de usuario.</p>
+
+      <!-- Más adelante este formulario se conectará al backend -->
+      <form action="user-home.html" method="get" class="formulario">
+        <fieldset>
+          <legend>Datos de acceso</legend>
+
+          <div class="campo">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+
+          <div class="campo">
+            <button type="submit">Entrar</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <p class="texto-centro">
+        ¿No tienes cuenta?
+        <a href="register.html">Nuevo usuario · Registrarse</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Proyecto PAT · Frontend HTML y CSS · Reserva de pistas de pádel</p>
+      <p>&copy 2025 PadelPoint</p>
+    </div>
+  </footer>
+
+</body>
+</html>

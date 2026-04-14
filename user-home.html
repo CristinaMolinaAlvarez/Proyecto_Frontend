@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zona de usuario | Reserva Pádel</title>
+  <meta name="description" content="Zona personal del usuario en la web de reserva de pádel">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <h1>Reserva Pádel</h1>
+        <a href="my-reservations.html" class="usuario-icono" aria-label="Mi perfil">👤</a>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html" aria-current="page">Inicio</a></li>
+          <li><a href="courts.html">Pistas</a></li>
+          <li><a href="availability.html">Disponibilidad</a></li>
+          <li><a href="reservation.html">Reservar</a></li>
+          <li><a href="my-reservations.html">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero">
+      <div class="hero-texto">
+        <h2>Bienvenido a tu zona de usuario</h2>
+        <p>
+          Desde aquí puedes consultar pistas, revisar la disponibilidad y gestionar tus reservas.
+        </p>
+        <div class="acciones">
+          <a href="reservation.html" class="boton-principal">Nueva reserva</a>
+          <a href="my-reservations.html" class="boton-secundario">Ver mis reservas</a>
+        </div>
+      </div>
+
+      <div class="hero-imagen">
+        <img src="imagenes/pista-padel.jpg" alt="Pistas de pádel" class="imagen-real">
+      </div>
+    </section>
+
+    <section class="caja">
+      <h2>Accesos frecuentes</h2>
+      <div class="tarjetas tres-columnas">
+        <article class="tarjeta">
+          <h3>Pistas</h3>
+          <p>Consulta las pistas activas y su información principal.</p>
+          <a href="courts.html" class="enlace-tarjeta">Ir a pistas</a>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Disponibilidad</h3>
+          <p>Comprueba horarios libres antes de hacer una reserva.</p>
+          <a href="availability.html" class="enlace-tarjeta">Ver disponibilidad</a>
+        </article>
+
+        <article class="tarjeta">
+          <h3>Mis reservas</h3>
+          <p>Consulta las reservas activas y las canceladas.</p>
+          <a href="my-reservations.html" class="enlace-tarjeta">Ver mis reservas</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor">
+      <p>Proyecto PAT · Frontend HTML y CSS · Reserva de pistas de pádel</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
