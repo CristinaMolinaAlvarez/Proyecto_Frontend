@@ -103,7 +103,6 @@ Aunque esta práctica no incluye lógica en JavaScript ni conexión con backend,
 
 Se ha preparado:
 
-- Formularios con atributos `name` alineados con backend
 - Separación de vistas según permisos (roles)
 - Flujo de navegación coherente con endpoints REST
 
