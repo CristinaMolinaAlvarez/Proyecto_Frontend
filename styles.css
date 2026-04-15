@@ -133,7 +133,7 @@ a {
 .menu {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /*si no cabe enuna linea pasa a la siguiente*/
   gap: 12px;
   margin: 18px 0 0 0;
   padding: 0;
@@ -250,7 +250,7 @@ a {
 }
 
 .etiqueta {
-  display: inline-block;
+  display: inline-block; /* no ocupa toda la fila y tiene padding, ancho...*/
   margin: 0 0 10px 0;
   padding: 7px 12px;
   border-radius: 999px;
@@ -288,11 +288,11 @@ a {
 
 .bloque-imagen img {
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;/*se adapta al contenedor aunque tenga que recortar*/
   border-radius: 16px;
 }
 
-/*  collage y paneles laterales: se redondean y se recorta lo que sobresalga*/
+/*collage y paneles laterales: se redondean y se recorta lo que sobresalga*/
 .bloque-imagen,
 .bloque-info,
 .panel-lateral,
@@ -549,7 +549,7 @@ a {
 }
 
 .campo-completo {
-  grid-column: 1 / -1;
+  grid-column: 1 / -1; /* el campo ocupe todo el ancho sin depender del número de columnas*/
 }
 
 .campo-boton {
@@ -586,13 +586,6 @@ button:hover {
   background: #123629;
 }
 
-input:focus,
-select:focus,
-button:focus {
-  outline: 3px solid rgba(199, 240, 74, 0.3);
-  outline-offset: 2px;
-}
-
 /* Validación en rojo / verde */
 input:focus:invalid,
 select:focus:invalid {
@@ -604,6 +597,7 @@ select:focus:valid {
   border-color: #2a7b5f;
 }
 
+/*especificaciones de ayuda en forms*/
 small {
   color: #5d675e;
   font-size: 0.88rem;
@@ -690,6 +684,7 @@ small {
   background: #faf6ec;
 }
 
+/* para poder hacer scroll*/
 .tabla-responsiva {
   overflow-x: auto;
 }
@@ -708,7 +703,11 @@ small {
 }
 
 .tabla-admin thead {
-  background: #f0f5e6;
+  background: #dff5b2;
+}
+
+.tabla-admin tbody tr:nth-child(2n) {
+  background: #f0fadb;
 }
 
 .footer {
