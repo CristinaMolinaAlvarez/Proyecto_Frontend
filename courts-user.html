@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Pistas usuario</title>
+  <meta name="description" content="Pistas disponibles para usuarios autenticados en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-usuario">
+
+  <header class="header header-privado">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="user-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Pistas disponibles</p>
+          </div>
+        </a>
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-user">USER</span>
+          <a href="my-reservations.html" class="usuario-icono">👤</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html">Inicio</a></li>
+          <li><a href="courts-user.html" aria-current="page">Pistas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+          <li><a href="reservation.html">Reservar</a></li>
+          <li><a href="my-reservations.html">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista usuario</p>
+      <h1>Elige pista y reserva</h1>
+    </section>
+
+    <section class="tarjetas tres-columnas">
+      <article class="tarjeta tarjeta-pista">
+        <img src="images/pistaindoor.jpg" alt="Pista Central Indoor">
+        <div class="tarjeta-contenido">
+          <div class="estado estado-activa">Activa</div>
+          <h2>Pista Central Indoor</h2>
+          <p><strong>ID:</strong> 1</p>
+          <p><strong>Ubicación:</strong> Interior</p>
+          <p><strong>Precio/hora:</strong> 18 €</p>
+          <p><strong>Superficie:</strong> Césped sintético premium</p>
+          <div class="grupo-botones">
+            <a href="availability-user.html" class="boton boton-secundario">Ver horas libres</a>
+            <a href="reservation.html" class="boton boton-principal">Reservar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta-pista">
+        <img src="images/pistajardin.jpg" alt="Pista Jardín">
+        <div class="tarjeta-contenido">
+          <div class="estado estado-activa">Activa</div>
+          <h2>Pista Jardín</h2>
+          <p><strong>ID:</strong> 2</p>
+          <p><strong>Ubicación:</strong> Exterior</p>
+          <p><strong>Precio/hora:</strong> 16 €</p>
+          <p><strong>Superficie:</strong> Rápida y luminosa</p>
+          <div class="grupo-botones">
+            <a href="availability-user.html" class="boton boton-secundario">Ver horas libres</a>
+            <a href="reservation.html" class="boton boton-principal">Reservar</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="tarjeta tarjeta-pista">
+        <img src="images/pistapro.jpg" alt="Pista Lima Pro">
+        <div class="tarjeta-contenido">
+          <div class="estado estado-activa">Activa</div>
+          <h2>Pista Lima Pro</h2>
+          <p><strong>ID:</strong> 3</p>
+          <p><strong>Ubicación:</strong> Interior</p>
+          <p><strong>Precio/hora:</strong> 20 €</p>
+          <p><strong>Superficie:</strong> Preparada para entrenamiento técnico</p>
+          <div class="grupo-botones">
+            <a href="availability-user.html" class="boton boton-secundario">Ver horas libres</a>
+            <a href="reservation.html" class="boton boton-principal">Reservar</a>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

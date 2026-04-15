@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Gestión de pistas</title>
+  <meta name="description" content="Vista de administración de pistas en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-admin">
+
+  <header class="header header-admin">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="admin-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Gestión de pistas</p>
+          </div>
+        </a>
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-admin">ADMIN</span>
+          <a href="admin-home.html" class="usuario-icono">⚙</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="admin-home.html">Dashboard</a></li>
+          <li><a href="admin-courts.html" aria-current="page">Pistas</a></li>
+          <li><a href="admin-reservations.html">Reservas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista administrador</p>
+      <h1>Gestión de pistas</h1>
+    </section>
+
+    <section class="caja">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">Control</p>
+          <h2>Pistas registradas</h2>
+        </div>
+        <a href="#" class="boton boton-principal">Añadir pista</a>
+      </div>
+
+      <div class="tabla-responsiva">
+        <table class="tabla-admin">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Ubicación</th>
+              <th>Precio/hora</th>
+              <th>Estado</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Central Indoor</td>
+              <td>Interior</td>
+              <td>18 €</td>
+              <td>Activa</td>
+              <td><a href="#" class="enlace-tabla">Editar</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jardín</td>
+              <td>Exterior</td>
+              <td>16 €</td>
+              <td>Activa</td>
+              <td><a href="#" class="enlace-tabla">Editar</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Lima Pro</td>
+              <td>Interior</td>
+              <td>20 €</td>
+              <td>Inactiva</td>
+              <td><a href="#" class="enlace-tabla">Editar</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+        <p>Control de pistas para administrador</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

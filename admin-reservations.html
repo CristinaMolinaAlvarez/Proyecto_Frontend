@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Reservas globales</title>
+  <meta name="description" content="Vista de administración de reservas en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-admin">
+
+  <header class="header header-admin">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="admin-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Reservas globales</p>
+          </div>
+        </a>
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-admin">ADMIN</span>
+          <a href="admin-home.html" class="usuario-icono">⚙</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="admin-home.html">Dashboard</a></li>
+          <li><a href="admin-courts.html">Pistas</a></li>
+          <li><a href="admin-reservations.html" aria-current="page">Reservas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista administrador</p>
+      <h1>Listado global de reservas</h1>
+    </section>
+
+    <section class="caja">
+      <h2>Filtros visuales</h2>
+      <form class="formulario formulario-filtros" action="#" method="get">
+        <div class="rejilla-formulario tres-campos">
+          <div class="campo">
+            <label for="date">Fecha</label>
+            <input type="date" id="date" name="date">
+          </div>
+
+          <div class="campo">
+            <label for="courtId">Pista</label>
+            <select id="courtId" name="courtId">
+              <option value="">Todas</option>
+              <option value="1">Pista 1</option>
+              <option value="2">Pista 2</option>
+              <option value="3">Pista 3</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="userId">Usuario</label>
+            <input type="number" id="userId" name="userId" min="1" placeholder="ID usuario">
+          </div>
+        </div>
+
+        <div class="campo campo-boton">
+          <button type="submit">Aplicar filtros</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="caja">
+      <div class="tabla-responsiva">
+        <table class="tabla-admin">
+          <thead>
+            <tr>
+              <th>ID reserva</th>
+              <th>Usuario</th>
+              <th>Pista</th>
+              <th>Fecha</th>
+              <th>Hora inicio</th>
+              <th>Duración</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>101</td>
+              <td>Usuario 7</td>
+              <td>Pista 1</td>
+              <td>18/04/2026</td>
+              <td>19:00</td>
+              <td>60 min</td>
+              <td>ACTIVA</td>
+            </tr>
+            <tr>
+              <td>102</td>
+              <td>Usuario 12</td>
+              <td>Pista 2</td>
+              <td>18/04/2026</td>
+              <td>20:00</td>
+              <td>120 min</td>
+              <td>ACTIVA</td>
+            </tr>
+            <tr>
+              <td>103</td>
+              <td>Usuario 5</td>
+              <td>Pista 3</td>
+              <td>17/04/2026</td>
+              <td>18:00</td>
+              <td>60 min</td>
+              <td>CANCELADA</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+        <p>Control de reservas del sistema</p>
+      </div>
+
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

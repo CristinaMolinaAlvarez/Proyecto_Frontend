@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Panel administrador</title>
+  <meta name="description" content="Panel de administración de Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-admin">
+
+  <header class="header header-admin">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="admin-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Panel administrador</p>
+          </div>
+        </a>
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-admin">ADMIN</span>
+          <a href="admin-home.html" class="usuario-icono">⚙</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="admin-home.html" aria-current="page">Dashboard</a></li>
+          <li><a href="admin-courts.html">Pistas</a></li>
+          <li><a href="admin-reservations.html">Reservas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero hero-admin">
+      <div class="hero-texto">
+        <p class="etiqueta">Rol administrador</p>
+        <h1>Visión global del sistema</h1>
+      </div>
+
+      <div class="panel-lateral">
+        <h2>Resumen</h2>
+        <ul class="lista-simple">
+          <li>3 pistas registradas</li>
+          <li>12 reservas activas hoy</li>
+          <li>2 incidencias pendientes</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tarjetas tres-columnas">
+      <article class="tarjeta tarjeta-icono">
+        <div class="icono-tarjeta">A1</div>
+        <h2>Reservas globales</h2>
+        <p>Administración de todas las reservas del sistema con filtros.</p>
+        <a href="admin-reservations.html" class="enlace-tarjeta">Ir a reservas</a>
+      </article>
+
+      <article class="tarjeta tarjeta-icono">
+        <div class="icono-tarjeta">A2</div>
+        <h2>Pistas</h2>
+        <p>Zona pensada para alta, edición, consulta y baja lógica o física.</p>
+        <a href="admin-courts.html" class="enlace-tarjeta">Ir a pistas</a>
+      </article>
+
+      <article class="tarjeta tarjeta-icono">
+        <div class="icono-tarjeta">A3</div>
+        <h2>Disponibilidad</h2>
+        <p>Consulta transversal del estado del club.</p>
+        <a href="availability-user.html" class="enlace-tarjeta">Ir a disponibilidad</a>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+        <p>Vista de administración</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

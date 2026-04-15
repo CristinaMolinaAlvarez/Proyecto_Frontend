@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Disponibilidad</title>
+  <meta name="description" content="Consulta la disponibilidad de pistas en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-publico">
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="index.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Disponibilidad diaria</p>
+          </div>
+        </a>
+
+        <div class="acciones-superiores">
+          <a href="login.html" class="boton boton-secundario">Login</a>
+          <a href="register.html" class="boton boton-principal">Crear cuenta</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="courts-public.html">Pistas</a></li>
+          <li><a href="availability-public.html" aria-current="page">Disponibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista pública</p>
+      <h1>Consulta la disponibilidad por día</h1>
+      <p>
+        Para consultar la disponibilidad de las pistas, selecciona un día y, si quieres, filtra por pista.
+      </p>
+    </section>
+
+    <section class="caja">
+      <h2>Selecciona un día</h2>
+      <form class="formulario formulario-filtros" action="#" method="get">
+        <div class="rejilla-formulario">
+          <div class="campo">
+            <label for="date">Fecha de consulta</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+
+          <div class="campo">
+            <label for="courtId">Filtrar por pista</label>
+            <select id="courtId" name="courtId">
+              <option value="">Todas las pistas</option>
+              <option value="1">Pista 1 - Central Indoor</option>
+              <option value="2">Pista 2 - Jardín</option>
+              <option value="3">Pista 3 - Lima Pro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo campo-boton">
+          <button type="submit">Consultar disponibilidad</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="caja">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">Horario del club</p>
+          <h2>Franjas disponibles</h2>
+        </div>
+        <span class="chip-horario">09:00 - 22:00</span>
+      </div>
+
+      <div class="tarjetas una-columna">
+        <article class="tarjeta tarjeta-disponibilidad">
+          <div class="cabecera-pista">
+            <div>
+              <h3>Pista 1 · Central Indoor</h3>
+              <p>Fecha seleccionada: 18/04/2026</p>
+            </div>
+            <a href="login.html" class="boton boton-secundario">Login para reservar</a>
+          </div>
+
+          <div class="slots">
+            <span>09:00</span>
+            <span>10:00</span>
+            <span>13:00</span>
+            <span>16:00</span>
+            <span>18:00</span>
+            <span>20:00</span>
+          </div>
+        </article>
+
+        <article class="tarjeta tarjeta-disponibilidad">
+          <div class="cabecera-pista">
+            <div>
+              <h3>Pista 2 · Jardín</h3>
+              <p>Fecha seleccionada: 18/04/2026</p>
+            </div>
+            <a href="login.html" class="boton boton-secundario">Login para reservar</a>
+          </div>
+
+          <div class="slots">
+            <span>09:00</span>
+            <span>11:00</span>
+            <span>12:00</span>
+            <span>17:00</span>
+            <span>19:00</span>
+            <span>21:00</span>
+          </div>
+        </article>
+
+        <article class="tarjeta tarjeta-disponibilidad">
+          <div class="cabecera-pista">
+            <div>
+              <h3>Pista 3 · Lima Pro</h3>
+              <p>Fecha seleccionada: 18/04/2026</p>
+            </div>
+            <a href="login.html" class="boton boton-secundario">Login para reservar</a>
+          </div>
+
+          <div class="slots">
+            <span>10:00</span>
+            <span>12:00</span>
+            <span>14:00</span>
+            <span>15:00</span>
+            <span>18:00</span>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+
+</html>

@@ -1,45 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inicio</title>
-<link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Inicio</title>
+  <meta name="description" content="Pádel Point, consulta pistas, disponibilidad y reservas de forma sencilla.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="layout-publico">
 
-<header class="header">
-  <div class="contenedor">
-    <div class="barra-superior">
-      <h1>Reserva Pádel</h1>
-      <a href="login.html" class="boton boton-secundario">Login</a>
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="index.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Reserva de pistas</p>
+          </div>
+        </a>
+
+        <div class="acciones-superiores">
+          <a href="login.html" class="boton boton-secundario">Login</a>
+          <a href="register.html" class="boton boton-principal">Crear cuenta</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html" aria-current="page">Inicio</a></li>
+          <li><a href="courts-public.html">Pistas</a></li>
+          <li><a href="availability-public.html">Disponibilidad</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <ul class="menu">
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="courts.html">Pistas</a></li>
-      <li><a href="availability.html">Disponibilidad</a></li>
-    </ul>
-  </div>
-</header>
+  <main class="contenedor">
+    <section class="hero hero-inicio">
+      <div class="hero-texto">
+        <p class="etiqueta">Club urbano · interior y exterior</p>
+        <h1>Juega cuando quieras, reserva cuando toque</h1>
+        <p class="hero-descripcion">
+          Consulta pistas disponibles, revisa horarios y reserva tu pista en pocos pasos.
+          Todo pensado para que organizar tu próximo partido sea rápido, cómodo y sin complicaciones.
+        </p>
 
-<main class="contenedor">
+        <div class="acciones">
+          <a href="courts-public.html" class="boton boton-principal">Ver pistas</a>
+          <a href="availability-public.html" class="boton boton-secundario">Consultar disponibilidad</a>
+        </div>
 
-<section class="hero">
-  <div>
-    <h2>Reserva tu pista fácilmente</h2>
-    <p>Consulta horarios y gestiona tus reservas.</p>
-    <a href="courts.html" class="boton boton-principal">Ver pistas</a>
-  </div>
-  <img src="images/hero-padel.jpg">
-</section>
+        <ul class="hero-datos">
+          <li>Horario del club: 09:00 - 22:00</li>
+          <li>Reservas de 1 o 2 horas</li>
+          <li>y más...</li>
+        </ul>
+      </div>
 
-</main>
+      <div class="hero-visual">
+        <div class="collage">
+          <div class="bloque-imagen imagen-pista-grande">
+            <img src="images/pistaprincipal.jpg" alt="Pista principal de Pádel Point">
+          </div>
+          <div class="bloque-info">
+            <h2>Tu partido, mejor organizado</h2>
+            <p>
+              Consulta pista, precio, estado y horas libres antes de entrar en la zona privada.
+            </p>
+          </div>
+          <div class="bloque-imagen imagen-pista-pequena">
+            <img src="images/detallepadel.jpg" alt="Detalle de una pista de pádel">
+          </div>
+        </div>
+      </div>
+    </section>
 
-<footer class="footer">
-  <p>&copy; 2026 PadelPoint</p>
-</footer>
+    <section class="caja">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">El club</p>
+          <h2>Un espacio pensado para jugar</h2>
+        </div>
+      </div>
+
+      <div class="tarjetas tres-columnas">
+        <article class="tarjeta tarjeta-icono">
+          <div class="icono-tarjeta">01</div>
+          <h3>Pistas cuidadas</h3>
+          <p>Superficies en buen estado y espacios preparados para disfrutar cada partido.</p>
+        </article>
+
+        <article class="tarjeta tarjeta-icono">
+          <div class="icono-tarjeta">02</div>
+          <h3>Juega a tu ritmo</h3>
+          <p>Horarios amplios para que puedas jugar por la mañana, tarde o noche.</p>
+        </article>
+
+        <article class="tarjeta tarjeta-icono">
+          <div class="icono-tarjeta">03</div>
+          <h3>Partidos sin complicaciones</h3>
+          <p>Consulta disponibilidad y organiza tu reserva de forma rápida y clara.</p>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="caja caja-destacada">
+      <div class="contenido-destacado">
+        <div>
+          <p class="etiqueta">Reserva</p>
+          <h2>Organiza tu partido en pocos pasos</h2>
+          <p>
+            Elige pista, revisa horarios disponibles y deja tu reserva preparada sin complicaciones.
+            Todo pensado para ir directo a lo importante.
+          </p>
+        </div>
+
+        <div class="mini-panel">
+          <p class="mini-panel-titulo">Accesos rápidos</p>
+          <ul class="lista-simple">
+            <li>Ver pistas</li>
+            <li>Consultar disponibilidad</li>
+            <li>Reservar pista</li>
+            <li>Acceder a mi cuenta</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+      </div>
+
+    </div>
+  </footer>
 
 </body>
+
 </html>
