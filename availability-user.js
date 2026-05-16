@@ -60,7 +60,7 @@ function pintarDisponibilidad(disponibilidad) {
   let html = "";
 
   disponibilidad.forEach(pista => {
-    // El campo en el backend se llama "franjasDisponibles" (nombre del record Java)
+    // El campo en el backend se llama "franjasDisponibles"
     const slots = pista.franjasDisponibles || [];
 
     html += `
