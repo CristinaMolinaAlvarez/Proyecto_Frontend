@@ -36,7 +36,7 @@ public class TareasProgramadas {
         this.pistaRepo   = pistaRepo;
     }
 
-    // ── Recordatorio diario: avisa a cada usuario de sus reservas de hoy ─────
+    // Recordatorio diario: avisa a cada usuario de sus reservas de hoy
     // Se ejecuta cada día a las 02:00
     @Scheduled(cron = "0 0 2 * * *")
     public void enviarRecordatorioReservas() {
@@ -57,7 +57,7 @@ public class TareasProgramadas {
         log.info("Tarea programada: recordatorio diario completado ({} reservas activas hoy)", reservasDeHoy.size());
     }
 
-    // ── Boletín mensual: envía a cada usuario la disponibilidad de las pistas ─
+    // mensual: envía a cada usuario la disponibilidad de las pistas
     // Se ejecuta el día 1 de cada mes a las 02:00
     @Scheduled(cron = "0 0 2 1 * *")
     public void enviarResumenMensualDisponibilidad() {

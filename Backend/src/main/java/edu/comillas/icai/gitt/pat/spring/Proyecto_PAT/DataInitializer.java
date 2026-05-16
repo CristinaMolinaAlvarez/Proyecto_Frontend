@@ -55,7 +55,7 @@ public class DataInitializer implements CommandLineRunner {
 
         log.info("DataInitializer: insertando datos de ejemplo...");
 
-        // ── Pistas ────────────────────────────────────────────────────────────
+        // Pistas
         Pista p1 = new Pista();
         p1.setNombre("Central Indoor");
         p1.setUbicacion("Interior");
@@ -82,7 +82,7 @@ public class DataInitializer implements CommandLineRunner {
 
         log.info("DataInitializer: 3 pistas insertadas");
 
-        // ── Usuarios ──────────────────────────────────────────────────────────
+        // Usuarios
         Usuario admin = new Usuario();
         admin.setNombre("Admin");
         admin.setApellidos("PádelPoint");
@@ -118,7 +118,7 @@ public class DataInitializer implements CommandLineRunner {
 
         log.info("DataInitializer: 3 usuarios insertados (1 admin, 2 users)");
 
-        // ── Reservas de ejemplo ───────────────────────────────────────────────
+        // Reservas
         LocalDate hoy = LocalDate.now();
 
         Reserva r1 = new Reserva();

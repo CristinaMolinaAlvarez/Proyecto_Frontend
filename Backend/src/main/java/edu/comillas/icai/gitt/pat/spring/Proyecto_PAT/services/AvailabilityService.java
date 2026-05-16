@@ -89,7 +89,7 @@ public class AvailabilityService {
         // Obtenemos todas las reservas de la base de datos
         List<Reserva> reservas = reservaRepo.findByPista_IdPistaAndFechaReserva(courtId, date);
 
-        // Recorre cada hora posible del dia y mira si existe alguna reserva activa
+        // Recorremos cada hora posible del dia y mira si existe alguna reserva activa
         List<LocalTime> libres = new ArrayList<>();
 
         for (LocalTime slot : allSlots) {

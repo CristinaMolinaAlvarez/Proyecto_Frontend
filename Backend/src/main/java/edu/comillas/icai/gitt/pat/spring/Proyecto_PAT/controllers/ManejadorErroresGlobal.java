@@ -66,7 +66,7 @@ public class ManejadorErroresGlobal {
                 .body(Map.of(
                         "timestamp", LocalDateTime.now(),
                         "status", 500,
-                        "error", ex.getMessage()   // 👈 así verás el mensaje real en Postman
+                        "error", ex.getMessage()
                 ));*/
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
