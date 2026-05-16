@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Login</title>
+  <meta name="description" content="Acceso a la zona privada de Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-publico">
+
+  <header class="header">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="index.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Acceso de usuarios</p>
+          </div>
+        </a>
+
+        <div class="acciones-superiores">
+          <a href="login.html" class="boton boton-principal" aria-current="page">Login</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="courts-public.html">Pistas</a></li>
+          <li><a href="availability-public.html">Disponibilidad</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor pagina-formulario">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Acceso</p>
+      <h1>Inicia sesión en tu zona privada</h1>
+      <p>
+        Para acceder a su panel de usuario o administrador, introduzca su correo electrónico y contraseña.
+      </p>
+    </section>
+
+    <section class="form-box">
+      <form id="form-login" action="#" method="post" class="formulario">
+        <fieldset>
+          <legend>Datos de acceso</legend>
+
+          <div class="campo">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.com" required>
+          </div>
+
+          <div class="campo">
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Introduce tu contraseña" required>
+          </div>
+
+          <div class="campo campo-boton">
+            <button type="submit">Entrar como usuario</button>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="mensaje-ayuda">
+        <p>¿No tienes cuenta?</p>
+        <a href="register.html" class="boton boton-principal">
+          Crear cuenta
+        </a>
+        <p class="admin-link">
+          Vista admin:
+          <a href="admin-home.html">Abrir panel administrador</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="login.js"></script>
+</body>
+
+</html>

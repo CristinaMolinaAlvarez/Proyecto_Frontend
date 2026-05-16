@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Nueva reserva</title>
+  <meta name="description" content="Formulario de nueva reserva en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-usuario">
+
+  <header class="header header-privado">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="user-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Nueva reserva</p>
+          </div>
+        </a>
+
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-user">USER</span>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html">Inicio</a></li>
+          <li><a href="courts-user.html">Pistas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+          <li><a href="reservation.html" aria-current="page">Reservar</a></li>
+          <li><a href="my-reservations.html">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor pagina-formulario">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista usuario</p>
+      <h1>Crear reserva</h1>
+    </section>
+
+    <section class="form-box">
+      <form id="form-reserva" action="#" method="post" class="formulario">
+        <fieldset>
+          <legend>Datos de la reserva</legend>
+
+          <div class="rejilla-formulario">
+            <div class="campo">
+              <label for="idPista">Pista</label>
+              <select id="idPista" name="idPista" required>
+                <option value="">Selecciona una pista</option>
+                <option value="1">Central Indoor</option>
+                <option value="2">Jardín</option>
+                <option value="3">Lima Pro</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="fechaReserva">Fecha</label>
+              <input type="date" id="fechaReserva" name="fechaReserva" required>
+            </div>
+
+            <div class="campo">
+              <label for="horaInicio">Hora de inicio</label>
+              <select id="horaInicio" name="horaInicio" required>
+                <option value="">Selecciona hora</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+              </select>
+            </div>
+
+            <div class="campo">
+              <label for="duracionMinutos">Duración</label>
+              <select id="duracionMinutos" name="duracionMinutos" required>
+                <option value="">Selecciona duración</option>
+                <option value="60">60 minutos · 1 hora</option>
+                <option value="120">120 minutos · 2 horas</option>
+              </select>
+              <small>Solo se permiten reservas de 1 o 2 horas</small>
+            </div>
+          </div>
+
+          <div class="campo campo-boton">
+            <button type="submit">Confirmar reserva</button>
+          </div>
+        </fieldset>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+        <p>Formulario de reserva</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="reserva.js"></script>
+</body>
+
+</html>

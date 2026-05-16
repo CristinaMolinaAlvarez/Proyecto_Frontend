@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pádel Point | Mis reservas</title>
+  <meta name="description" content="Listado de reservas del usuario en Pádel Point.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="layout-usuario">
+
+  <header class="header header-privado">
+    <div class="contenedor">
+      <div class="barra-superior">
+        <a href="user-home.html" class="marca">
+          <span class="marca-logo">PP</span>
+          <div>
+            <p class="marca-nombre">Pádel Point</p>
+            <p class="marca-subtitulo">Mis reservas</p>
+          </div>
+        </a>
+
+        <div class="perfil">
+          <span class="perfil-rol perfil-rol-user">USER</span>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul class="menu">
+          <li><a href="user-home.html">Inicio</a></li>
+          <li><a href="courts-user.html">Pistas</a></li>
+          <li><a href="availability-user.html">Disponibilidad</a></li>
+          <li><a href="reservation.html">Reservar</a></li>
+          <li><a href="my-reservations.html" aria-current="page">Mis reservas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <section class="encabezado-pagina">
+      <p class="etiqueta">Vista usuario</p>
+      <h1>Gestiona tus reservas</h1>
+    </section>
+
+    <section class="caja">
+      <div class="titulo-seccion">
+        <div>
+          <p class="etiqueta">Panel personal</p>
+          <h2>Reservas registradas</h2>
+        </div>
+        <a href="reservation.html" class="boton boton-principal">Nueva reserva</a>
+      </div>
+
+      <div id="lista-reservas" class="tarjetas una-columna"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+
+      <div>
+        <p><strong>Pádel Point</strong></p>
+        <p>
+          <a href="mailto:padelpoint.pat@gmail.com" target="_blank">
+            padelpoint.pat@gmail.com
+          </a>
+        </p>
+        <p>
+          <a href="tel:+34677777777" target="_blank">
+            +34 677 777 777
+          </a>
+        </p>
+      </div>
+
+      <div>
+        <p>&copy; 2026 Pádel Point</p>
+        <p>Todos los derechos reservados</p>
+        <p>Reservas personales del usuario</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="verReserva.js"></script>
+</body>
+
+</html>
