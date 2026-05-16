@@ -720,7 +720,7 @@ POST http://localhost:8080/pistaPadel/auth/login
 
 ```txt
 Email: admin@padel.com
-Password: admin
+Password: admin123
 ```
 
 ## Resultado esperado
@@ -884,19 +884,7 @@ GET /pistaPadel/admin/reservations?courtId=1
 
 ---
 
-# 17. Filtro ADMIN por usuario
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?userId=1
-```
-
-![Filtro usuario](images/capturas/postman-admin-filter-user.png)
-
----
-
-# 18. Filtro ADMIN por fecha
+# 17. Filtro ADMIN por fecha
 
 ## GET
 
@@ -908,27 +896,7 @@ GET /pistaPadel/admin/reservations?date=2026-05-20
 
 ---
 
-# 19. Activar/desactivar pista
-
-## PATCH
-
-```txt
-PATCH http://localhost:8080/pistaPadel/courts/1
-```
-
-## Body JSON
-
-```json
-{
-  "activa": false
-}
-```
-
-![Patch pista](images/capturas/postman-patch-court.png)
-
----
-
-# 20. Acceso denegado USER → ADMIN
+# 18. Acceso denegado USER → ADMIN
 
 Intentar acceder como USER a endpoint ADMIN.
 
@@ -942,7 +910,7 @@ Intentar acceder como USER a endpoint ADMIN.
 
 ---
 
-# 21. Endpoint protegido sin login
+# 19. Endpoint protegido sin login
 
 Intentar acceder sin autenticación a endpoint protegido.
 
@@ -956,7 +924,7 @@ Intentar acceder sin autenticación a endpoint protegido.
 
 ---
 
-# 22. Login incorrecto
+# 20. Login incorrecto
 
 Intentar login con contraseña incorrecta.
 
@@ -970,7 +938,7 @@ Intentar login con contraseña incorrecta.
 
 ---
 
-# 23. Reserva en pista inexistente
+# 21. Reserva en pista inexistente
 
 Intentar reservar una pista inexistente.
 
@@ -984,7 +952,7 @@ Intentar reservar una pista inexistente.
 
 ---
 
-# 24. Consulta disponibilidad fecha inválida
+# 22. Consulta disponibilidad fecha inválida
 
 ## GET
 
@@ -1002,7 +970,7 @@ GET /pistaPadel/availability?date=fecha-invalida
 
 ---
 
-# 25. Desactivar pista y comprobar reservas
+# 23. Desactivar pista y comprobar reservas
 
 Intentar reservar pista desactivada.
 
