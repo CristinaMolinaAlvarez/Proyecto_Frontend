@@ -102,6 +102,7 @@ Durante el desarrollo se eliminó la carpeta `/frontend` y todos los archivos HT
 ├── verReserva.js
 │
 ├── images/
+│   └── capturas/
 │
 ├── backend/
 │   ├── controllers/
@@ -116,8 +117,6 @@ Durante el desarrollo se eliminó la carpeta `/frontend` y todos los archivos HT
 ---
 
 # Roles de usuario
-
-La aplicación diferencia tres perfiles:
 
 ## Usuario no autenticado
 
@@ -137,7 +136,7 @@ Puede:
 
 - Acceder a su zona privada
 - Consultar pistas
-- Consultar disponibilidad
+- Ver disponibilidad
 - Crear reservas
 - Cancelar reservas
 - Consultar sus reservas
@@ -402,17 +401,11 @@ Password: admin
 Rol: ADMIN
 ```
 
-Este usuario administrador se crea automáticamente al arrancar la aplicación mediante el `CommandLineRunner` definido en:
-
-```java
-ProyectoPatApplication.java
-```
+Este usuario administrador se crea automáticamente al arrancar la aplicación mediante el `CommandLineRunner`.
 
 ---
 
 ## USERS DE EJEMPLO
-
-Los siguientes usuarios se cargan automáticamente mediante `DataInitializer`:
 
 ### Usuario 1
 
@@ -529,6 +522,500 @@ Estado: CANCELADA
 
 ---
 
+# Capturas Frontend
+
+## Página principal
+
+![Página principal](images/capturas/front-index.png)
+
+---
+
+## Registro
+
+![Registro](images/capturas/front-register.png)
+
+---
+
+## Login USER
+
+![Login USER](images/capturas/front-login-user.png)
+
+---
+
+## Login ADMIN
+
+![Login ADMIN](images/capturas/front-login-admin.png)
+
+---
+
+## Home usuario
+
+![Home usuario](images/capturas/front-user-home.png)
+
+---
+
+## Consulta pública de pistas
+
+![Pistas públicas](images/capturas/front-courts-public.png)
+
+---
+
+## Consulta pública de disponibilidad
+
+![Disponibilidad pública](images/capturas/front-availability-public.png)
+
+---
+
+## Pistas usuario
+
+![Pistas usuario](images/capturas/front-courts-user.png)
+
+---
+
+## Disponibilidad usuario
+
+![Disponibilidad usuario](images/capturas/front-availability-user.png)
+
+---
+
+## Crear reserva
+
+![Crear reserva](images/capturas/front-create-reservation.png)
+
+---
+
+## Mis reservas
+
+![Mis reservas](images/capturas/front-my-reservations.png)
+
+---
+
+## Perfil usuario
+
+![Perfil usuario](images/capturas/front-profile.png)
+
+---
+
+## Dashboard ADMIN
+
+![Dashboard admin](images/capturas/front-admin-home.png)
+
+---
+
+## Gestión de pistas ADMIN
+
+![Gestión pistas](images/capturas/front-admin-courts.png)
+
+---
+
+## Gestión reservas ADMIN
+
+![Gestión reservas](images/capturas/front-admin-reservations.png)
+
+---
+
+# PRUEBAS BACKEND (POSTMAN)
+
+Todas las pruebas backend se realizaron con Postman utilizando Basic Auth y los usuarios cargados automáticamente por la aplicación.
+
+---
+
+# 1. Healthcheck
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/health
+```
+
+## Resultado esperado
+
+```txt
+200 OK
+ok
+```
+
+![Healthcheck](images/capturas/postman-health.png)
+
+---
+
+# 2. Registro correcto
+
+## POST
+
+```txt
+POST http://localhost:8080/pistaPadel/auth/register
+```
+
+## Body JSON
+
+```json
+{
+  "nombre": "Laura",
+  "apellidos": "Martinez",
+  "email": "laura@padelpoint.com",
+  "telefono": "612345678",
+  "password": "password123"
+}
+```
+
+## Resultado esperado
+
+```txt
+201 CREATED
+```
+
+![Registro correcto](images/capturas/postman-register-ok.png)
+
+---
+
+# 3. Registro duplicado
+
+Repetir el mismo registro anterior.
+
+## Resultado esperado
+
+```txt
+409 CONFLICT
+```
+
+![Registro duplicado](images/capturas/postman-register-duplicado.png)
+
+---
+
+# 4. Login USER
+
+## POST
+
+```txt
+POST http://localhost:8080/pistaPadel/auth/login
+```
+
+## Basic Auth
+
+```txt
+Email: ana@padelpoint.com
+Password: password123
+```
+
+## Resultado esperado
+
+```txt
+200 OK
+```
+
+![Login USER](images/capturas/postman-login-user.png)
+
+---
+
+# 5. Login ADMIN
+
+## POST
+
+```txt
+POST http://localhost:8080/pistaPadel/auth/login
+```
+
+## Basic Auth
+
+```txt
+Email: admin@padel.com
+Password: admin
+```
+
+## Resultado esperado
+
+```txt
+200 OK
+```
+
+![Login ADMIN](images/capturas/postman-login-admin.png)
+
+---
+
+# 6. Obtener usuario autenticado
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/auth/me
+```
+
+## Resultado esperado
+
+```txt
+200 OK
+```
+
+![Usuario autenticado](images/capturas/postman-auth-me.png)
+
+---
+
+# 7. Consultar pistas
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/courts
+```
+
+![Consultar pistas](images/capturas/postman-courts.png)
+
+---
+
+# 8. Consultar disponibilidad general
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/availability?date=2026-05-20
+```
+
+![Disponibilidad general](images/capturas/postman-availability-general.png)
+
+---
+
+# 9. Consultar disponibilidad de una pista
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/availability?date=2026-05-20&courtId=1
+```
+
+![Disponibilidad pista](images/capturas/postman-availability-court.png)
+
+---
+
+# 10. Crear reserva
+
+## POST
+
+```txt
+POST http://localhost:8080/pistaPadel/reservations
+```
+
+## Body JSON
+
+```json
+{
+  "idPista": 1,
+  "fechaReserva": "2026-05-20",
+  "horaInicio": "18:00",
+  "duracionMinutos": 60
+}
+```
+
+![Crear reserva](images/capturas/postman-create-reservation.png)
+
+---
+
+# 11. Reserva duplicada
+
+Intentar reservar la misma pista y hora.
+
+## Resultado esperado
+
+```txt
+409 CONFLICT
+```
+
+![Reserva duplicada](images/capturas/postman-reservation-conflict.png)
+
+---
+
+# 12. Ver reservas usuario
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/reservations
+```
+
+![Reservas usuario](images/capturas/postman-my-reservations.png)
+
+---
+
+# 13. Obtener reserva concreta
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/reservations/{id}
+```
+
+![Reserva concreta](images/capturas/postman-get-reservation.png)
+
+---
+
+# 14. Cancelar reserva
+
+## DELETE
+
+```txt
+DELETE http://localhost:8080/pistaPadel/reservations/{id}
+```
+
+![Cancelar reserva](images/capturas/postman-delete-reservation.png)
+
+---
+
+# 15. Reservas ADMIN
+
+## GET
+
+```txt
+GET http://localhost:8080/pistaPadel/admin/reservations
+```
+
+![Reservas admin](images/capturas/postman-admin-reservations.png)
+
+---
+
+# 16. Filtro ADMIN por pista
+
+## GET
+
+```txt
+GET /pistaPadel/admin/reservations?courtId=1
+```
+
+![Filtro pista](images/capturas/postman-admin-filter-court.png)
+
+---
+
+# 17. Filtro ADMIN por usuario
+
+## GET
+
+```txt
+GET /pistaPadel/admin/reservations?userId=1
+```
+
+![Filtro usuario](images/capturas/postman-admin-filter-user.png)
+
+---
+
+# 18. Filtro ADMIN por fecha
+
+## GET
+
+```txt
+GET /pistaPadel/admin/reservations?date=2026-05-20
+```
+
+![Filtro fecha](images/capturas/postman-admin-filter-date.png)
+
+---
+
+# 19. Activar/desactivar pista
+
+## PATCH
+
+```txt
+PATCH http://localhost:8080/pistaPadel/courts/1
+```
+
+## Body JSON
+
+```json
+{
+  "activa": false
+}
+```
+
+![Patch pista](images/capturas/postman-patch-court.png)
+
+---
+
+# 20. Acceso denegado USER → ADMIN
+
+Intentar acceder como USER a endpoint ADMIN.
+
+## Resultado esperado
+
+```txt
+403 FORBIDDEN
+```
+
+![Error 403](images/capturas/postman-403-admin.png)
+
+---
+
+# 21. Endpoint protegido sin login
+
+Intentar acceder sin autenticación a endpoint protegido.
+
+## Resultado esperado
+
+```txt
+401 UNAUTHORIZED
+```
+
+![Error 401](images/capturas/postman-401-noauth.png)
+
+---
+
+# 22. Login incorrecto
+
+Intentar login con contraseña incorrecta.
+
+## Resultado esperado
+
+```txt
+401 UNAUTHORIZED
+```
+
+![Login incorrecto](images/capturas/postman-login-error.png)
+
+---
+
+# 23. Reserva en pista inexistente
+
+Intentar reservar una pista inexistente.
+
+## Resultado esperado
+
+```txt
+404 NOT FOUND
+```
+
+![Reserva pista inexistente](images/capturas/postman-court-notfound.png)
+
+---
+
+# 24. Consulta disponibilidad fecha inválida
+
+## GET
+
+```txt
+GET /pistaPadel/availability?date=fecha-invalida
+```
+
+## Resultado esperado
+
+```txt
+400 BAD REQUEST
+```
+
+![Fecha inválida](images/capturas/postman-invalid-date.png)
+
+---
+
+# 25. Desactivar pista y comprobar reservas
+
+Intentar reservar pista desactivada.
+
+## Resultado esperado
+
+```txt
+409 CONFLICT
+```
+
+![Pista desactivada](images/capturas/postman-disabled-court.png)
+
+---
+
 # Validaciones implementadas
 
 ## Frontend
@@ -595,587 +1082,6 @@ Gestionar pistas
 Consultar reservas
 ↓
 Aplicar filtros
-```
-
----
-
-# PRUEBAS BACKEND (POSTMAN)
-
-Todas las pruebas backend se realizaron con Postman utilizando Basic Auth y los usuarios cargados automáticamente por la aplicación.
-
----
-
-# 1. Healthcheck
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/health
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-ok
-```
-
-## Captura
-
-```txt
-postman-health.png
-```
-
----
-
-# 2. Registro correcto
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/auth/register
-```
-
-## Body JSON
-
-```json
-{
-  "nombre": "Laura",
-  "apellidos": "Martinez",
-  "email": "laura@padelpoint.com",
-  "telefono": "612345678",
-  "password": "password123"
-}
-```
-
-## Resultado esperado
-
-```txt
-201 CREATED
-```
-
-## Captura
-
-```txt
-postman-register-ok.png
-```
-
----
-
-# 3. Registro duplicado
-
-Repetir el mismo registro anterior.
-
-## Resultado esperado
-
-```txt
-409 CONFLICT
-```
-
-## Captura
-
-```txt
-postman-register-duplicado.png
-```
-
----
-
-# 4. Login USER
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/auth/login
-```
-
-## Basic Auth
-
-```txt
-Email: ana@padelpoint.com
-Password: password123
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
-## Captura
-
-```txt
-postman-login-user.png
-```
-
----
-
-# 5. Login ADMIN
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/auth/login
-```
-
-## Basic Auth
-
-```txt
-Email: admin@padel.com
-Password: admin
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
-## Captura
-
-```txt
-postman-login-admin.png
-```
-
----
-
-# 6. Obtener usuario autenticado
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/auth/me
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
-## Captura
-
-```txt
-postman-auth-me.png
-```
-
----
-
-# 7. Consultar pistas
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/courts
-```
-
-## Captura
-
-```txt
-postman-courts.png
-```
-
----
-
-# 8. Consultar disponibilidad
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/availability?date=2026-05-20
-```
-
-## Captura
-
-```txt
-postman-availability-general.png
-```
-
----
-
-# 9. Consultar disponibilidad de una pista
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/availability?date=2026-05-20&courtId=1
-```
-
-## Captura
-
-```txt
-postman-availability-court.png
-```
-
----
-
-# 10. Crear reserva
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/reservations
-```
-
-## Body JSON
-
-```json
-{
-  "idPista": 1,
-  "fechaReserva": "2026-05-20",
-  "horaInicio": "18:00",
-  "duracionMinutos": 60
-}
-```
-
-## Captura
-
-```txt
-postman-create-reservation.png
-```
-
----
-
-# 11. Reserva duplicada
-
-Intentar reservar la misma pista y hora.
-
-## Resultado esperado
-
-```txt
-409 CONFLICT
-```
-
-## Captura
-
-```txt
-postman-reservation-conflict.png
-```
-
----
-
-# 12. Ver reservas usuario
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/reservations
-```
-
-## Captura
-
-```txt
-postman-my-reservations.png
-```
-
----
-
-# 13. Cancelar reserva
-
-## DELETE
-
-```txt
-DELETE http://localhost:8080/pistaPadel/reservations/{id}
-```
-
-## Captura
-
-```txt
-postman-delete-reservation.png
-```
-
----
-
-# 14. Ver reservas ADMIN
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/admin/reservations
-```
-
-## Captura
-
-```txt
-postman-admin-reservations.png
-```
-
----
-
-# 15. Filtros ADMIN
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?courtId=1
-```
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?userId=1
-```
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?date=2026-05-20
-```
-
-## Capturas
-
-```txt
-postman-admin-filter-court.png
-postman-admin-filter-user.png
-postman-admin-filter-date.png
-```
-
----
-
-# 16. Activar/desactivar pista
-
-## PATCH
-
-```txt
-PATCH http://localhost:8080/pistaPadel/courts/1
-```
-
-## Body JSON
-
-```json
-{
-  "activa": false
-}
-```
-
-## Captura
-
-```txt
-postman-patch-court.png
-```
-
----
-
-# 17. Error 403
-
-Intentar acceder como USER a endpoint ADMIN.
-
-## Resultado esperado
-
-```txt
-403 FORBIDDEN
-```
-
-## Captura
-
-```txt
-postman-403-admin.png
-```
-
----
-
-# 18. Error 401
-
-Intentar acceder sin autenticación a endpoint protegido.
-
-## Resultado esperado
-
-```txt
-401 UNAUTHORIZED
-```
-
-## Captura
-
-```txt
-postman-401-noauth.png
-```
-
----
-
-# PRUEBAS FRONTEND
-
-# 1. Página principal
-
-Comprobar:
-
-- Hero principal
-- Navegación
-- Footer
-- Responsive
-
-## Captura
-
-```txt
-front-index.png
-```
-
----
-
-# 2. Registro
-
-Comprobar:
-
-- Validación de contraseña
-- Registro correcto
-- Mensajes de error
-
-## Captura
-
-```txt
-front-register.png
-```
-
----
-
-# 3. Login USER
-
-Comprobar:
-
-- Login correcto
-- Redirección user-home
-- localStorage
-
-## Captura
-
-```txt
-front-login-user.png
-```
-
----
-
-# 4. Login ADMIN
-
-Comprobar:
-
-- Login correcto
-- Redirección admin-home
-
-## Captura
-
-```txt
-front-login-admin.png
-```
-
----
-
-# 5. Home usuario
-
-Comprobar:
-
-- Navegación privada
-- Menú usuario
-
-## Captura
-
-```txt
-front-user-home.png
-```
-
----
-
-# 6. Disponibilidad
-
-Comprobar:
-
-- Consulta por fecha
-- Consulta por pista
-- Horas disponibles
-
-## Captura
-
-```txt
-front-availability-user.png
-```
-
----
-
-# 7. Crear reserva
-
-Comprobar:
-
-- Reserva correcta
-- Redirección
-
-## Captura
-
-```txt
-front-create-reservation.png
-```
-
----
-
-# 8. Mis reservas
-
-Comprobar:
-
-- Estado ACTIVA
-- Estado CANCELADA
-- Cancelación correcta
-
-## Captura
-
-```txt
-front-my-reservations.png
-```
-
----
-
-# 9. Perfil
-
-Comprobar:
-
-- Datos usuario
-- Cambio contraseña
-- Validación confirmación
-
-## Captura
-
-```txt
-front-profile.png
-```
-
----
-
-# 10. Dashboard ADMIN
-
-Comprobar:
-
-- Protección de rol
-- Navegación admin
-
-## Captura
-
-```txt
-front-admin-home.png
-```
-
----
-
-# 11. Gestión pistas ADMIN
-
-Comprobar:
-
-- Tabla dinámica
-- Activar/desactivar pista
-
-## Captura
-
-```txt
-front-admin-courts.png
-```
-
----
-
-# 12. Gestión reservas ADMIN
-
-Comprobar:
-
-- Tabla reservas
-- Filtros admin
-
-## Captura
-
-```txt
-front-admin-reservations.png
 ```
 
 ---
