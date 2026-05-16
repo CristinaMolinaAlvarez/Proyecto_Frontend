@@ -217,7 +217,7 @@ public class ReservationsService {
         return reservas;
     }
 
-    // ── Métodos auxiliares privados ──────────────────────────────────────────
+    //Métodos auxiliares
 
     private boolean esAdmin(Usuario usuario) {
         return usuario.getRol() == Rol.ADMIN;
