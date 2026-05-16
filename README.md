@@ -528,6 +528,8 @@ Estado: CANCELADA
 
 ![Página principal](images/capturas/front-index.png)
 
+![Página principal](images/capturas/front-index2.png)
+
 ---
 
 ## Registro
@@ -551,6 +553,8 @@ Estado: CANCELADA
 ## Home usuario
 
 ![Home usuario](images/capturas/front-user-home.png)
+![Home usuario](images/capturas/front-user-home2.png)
+![Home usuario](images/capturas/front-user-home3.png)
 
 ---
 
@@ -558,11 +562,15 @@ Estado: CANCELADA
 
 ![Pistas públicas](images/capturas/front-courts-public.png)
 
+![Pistas públicas](images/capturas/front-courts-public2.png)
+
+
 ---
 
 ## Consulta pública de disponibilidad
 
 ![Disponibilidad pública](images/capturas/front-availability-public.png)
+![Disponibilidad pública](images/capturas/front-availability-public2.png)
 
 ---
 
