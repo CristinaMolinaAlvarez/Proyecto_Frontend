@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //cuando se envie el formulario, ejecuta esta funcion
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    //ahora este sera el formulario de pista con su fecha hora y todo 
+    //ahora este sera el formulario de pista con su fecha hora
     const datosJsonFormulario = form2json(event);
     reservar(datosJsonFormulario);
   });
