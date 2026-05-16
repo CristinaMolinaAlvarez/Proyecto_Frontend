@@ -25,8 +25,8 @@
 
         <div class="perfil">
           <span class="perfil-rol perfil-rol-user">USER</span>
-          <a href="my-reservations.html" class="usuario-icono">👤</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
     </section>
 
     <section class="form-box">
-      <form action="my-reservations.html" method="get" class="formulario">
+      <form id="form-reserva" action="#" method="post" class="formulario">
         <fieldset>
           <legend>Datos de la reserva</legend>
 
@@ -58,9 +58,9 @@
               <label for="idPista">Pista</label>
               <select id="idPista" name="idPista" required>
                 <option value="">Selecciona una pista</option>
-                <option value="1">Pista 1 · Central Indoor</option>
-                <option value="2">Pista 2 · Jardín</option>
-                <option value="3">Pista 3 · Lima Pro</option>
+                <option value="1">Central Indoor</option>
+                <option value="2">Jardín</option>
+                <option value="3">Lima Pro</option>
               </select>
             </div>
 
@@ -133,6 +133,8 @@
     </div>
   </footer>
 
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="reserva.js"></script>
 </body>
 
 </html>

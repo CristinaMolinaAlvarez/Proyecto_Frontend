@@ -24,8 +24,8 @@
 
         <div class="perfil">
           <span class="perfil-rol perfil-rol-user">USER</span>
-          <a href="my-reservations.html" class="usuario-icono">👤</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -49,7 +49,7 @@
 
     <section class="caja">
       <h2>Buscar disponibilidad</h2>
-      <form class="formulario formulario-filtros" action="#" method="get">
+      <form id="form-disponibilidad" class="formulario formulario-filtros" action="#" method="get">
         <div class="rejilla-formulario">
           <div class="campo">
             <label for="date">Fecha de consulta</label>
@@ -60,9 +60,9 @@
             <label for="courtId">Pista concreta</label>
             <select id="courtId" name="courtId">
               <option value="">Todas las pistas</option>
-              <option value="1">Pista 1</option>
-              <option value="2">Pista 2</option>
-              <option value="3">Pista 3</option>
+              <option value="1">Central Indoor</option>
+              <option value="2">Jardín</option>
+              <option value="3">Lima Pro</option>
             </select>
           </div>
         </div>
@@ -82,63 +82,7 @@
         <span class="chip-horario">Horario: 09:00 - 22:00</span>
       </div>
 
-      <div class="tarjetas una-columna">
-        <article class="tarjeta tarjeta-disponibilidad">
-          <div class="cabecera-pista">
-            <div>
-              <h3>Pista 1 · Central Indoor</h3>
-              <p>18/04/2026 · precio 18 €/hora</p>
-            </div>
-            <a href="reservation.html" class="boton boton-principal">Reservar esta pista</a>
-          </div>
-
-          <div class="slots">
-            <span>09:00</span>
-            <span>10:00</span>
-            <span>13:00</span>
-            <span>16:00</span>
-            <span>18:00</span>
-            <span>20:00</span>
-          </div>
-        </article>
-
-        <article class="tarjeta tarjeta-disponibilidad">
-          <div class="cabecera-pista">
-            <div>
-              <h3>Pista 2 · Jardín</h3>
-              <p>18/04/2026 · precio 16 €/hora</p>
-            </div>
-            <a href="reservation.html" class="boton boton-principal">Reservar esta pista</a>
-          </div>
-
-          <div class="slots">
-            <span>09:00</span>
-            <span>11:00</span>
-            <span>12:00</span>
-            <span>17:00</span>
-            <span>19:00</span>
-            <span>21:00</span>
-          </div>
-        </article>
-
-        <article class="tarjeta tarjeta-disponibilidad">
-          <div class="cabecera-pista">
-            <div>
-              <h3>Pista 3 · Lima Pro</h3>
-              <p>18/04/2026 · precio 20 €/hora</p>
-            </div>
-            <a href="reservation.html" class="boton boton-principal">Reservar esta pista</a>
-          </div>
-
-          <div class="slots">
-            <span>10:00</span>
-            <span>12:00</span>
-            <span>14:00</span>
-            <span>15:00</span>
-            <span>18:00</span>
-          </div>
-        </article>
-      </div>
+      <div id="lista-disponibilidad" class="tarjetas una-columna"></div>
     </section>
   </main>
 
@@ -167,6 +111,8 @@
     </div>
   </footer>
 
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="availability-user.js"></script>
 </body>
 
 </html>

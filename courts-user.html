@@ -24,8 +24,8 @@
 
         <div class="perfil">
           <span class="perfil-rol perfil-rol-user">USER</span>
-          <a href="my-reservations.html" class="usuario-icono">👤</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -53,7 +53,6 @@
         <div class="tarjeta-contenido">
           <div class="estado estado-activa">Activa</div>
           <h2>Pista Central Indoor</h2>
-          <p><strong>ID:</strong> 1</p>
           <p><strong>Ubicación:</strong> Interior</p>
           <p><strong>Precio/hora:</strong> 18 €</p>
           <p><strong>Superficie:</strong> Césped sintético premium</p>
@@ -69,7 +68,6 @@
         <div class="tarjeta-contenido">
           <div class="estado estado-activa">Activa</div>
           <h2>Pista Jardín</h2>
-          <p><strong>ID:</strong> 2</p>
           <p><strong>Ubicación:</strong> Exterior</p>
           <p><strong>Precio/hora:</strong> 16 €</p>
           <p><strong>Superficie:</strong> Rápida y luminosa</p>
@@ -85,7 +83,6 @@
         <div class="tarjeta-contenido">
           <div class="estado estado-activa">Activa</div>
           <h2>Pista Lima Pro</h2>
-          <p><strong>ID:</strong> 3</p>
           <p><strong>Ubicación:</strong> Interior</p>
           <p><strong>Precio/hora:</strong> 20 €</p>
           <p><strong>Superficie:</strong> Preparada para entrenamiento técnico</p>
@@ -123,6 +120,19 @@
     </div>
   </footer>
 
+  <script>
+    function logout() {
+      localStorage.removeItem("usuarioId");
+      localStorage.removeItem("usuarioEmail");
+      localStorage.removeItem("usuarioPassword");
+      localStorage.removeItem("usuarioRol");
+      location.href = "login.html";
+    }
+    // Guard: redirigir si no hay sesión
+    if (!localStorage.getItem("usuarioEmail")) {
+      location.href = "login.html";
+    }
+  </script>
 </body>
 
 </html>

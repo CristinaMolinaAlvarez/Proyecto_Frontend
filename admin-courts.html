@@ -25,7 +25,7 @@
         <div class="perfil">
           <span class="perfil-rol perfil-rol-admin">ADMIN</span>
           <a href="admin-home.html" class="usuario-icono">⚙</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -52,14 +52,13 @@
           <p class="etiqueta">Control</p>
           <h2>Pistas registradas</h2>
         </div>
-        <a href="#" class="boton boton-principal">Añadir pista</a>
+        <button type="button" id="btn-aniadir-pista" class="boton boton-principal">Añadir pista</button>
       </div>
 
       <div class="tabla-responsiva">
         <table class="tabla-admin">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Nombre</th>
               <th>Ubicación</th>
               <th>Precio/hora</th>
@@ -67,32 +66,7 @@
               <th>Acción</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Central Indoor</td>
-              <td>Interior</td>
-              <td>18 €</td>
-              <td>Activa</td>
-              <td><a href="#" class="enlace-tabla">Editar</a></td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Jardín</td>
-              <td>Exterior</td>
-              <td>16 €</td>
-              <td>Activa</td>
-              <td><a href="#" class="enlace-tabla">Editar</a></td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Lima Pro</td>
-              <td>Interior</td>
-              <td>20 €</td>
-              <td>Inactiva</td>
-              <td><a href="#" class="enlace-tabla">Editar</a></td>
-            </tr>
-          </tbody>
+          <tbody id="tbody-pistas"></tbody>
         </table>
       </div>
     </section>
@@ -124,6 +98,9 @@
     </div>
   </footer>
 
+  <div id="aviso" style="text-align:center; margin:1rem 0;"></div>
+  <script src="admin.js"></script>
+  <script>iniciarAdminCourts();</script>
 </body>
 
 </html>

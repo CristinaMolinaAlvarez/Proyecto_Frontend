@@ -24,8 +24,8 @@
 
         <div class="perfil">
           <span class="perfil-rol perfil-rol-user">USER</span>
-          <a href="my-reservations.html" class="usuario-icono">👤</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <a href="profile.html" class="usuario-icono" title="Mi perfil">👤</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -56,46 +56,7 @@
         <a href="reservation.html" class="boton boton-principal">Nueva reserva</a>
       </div>
 
-      <div class="tarjetas una-columna">
-        <article class="tarjeta tarjeta-reserva">
-          <div class="reserva-top">
-            <h3>Reserva #001</h3>
-            <span class="estado estado-activa">Activa</span>
-          </div>
-          <div class="detalle-reserva">
-            <p><strong>Pista:</strong> Central Indoor</p>
-            <p><strong>Fecha:</strong> 18/04/2026</p>
-            <p><strong>Hora inicio:</strong> 19:00</p>
-            <p><strong>Duración:</strong> 60 minutos</p>
-          </div>
-        </article>
-
-        <article class="tarjeta tarjeta-reserva">
-          <div class="reserva-top">
-            <h3>Reserva #002</h3>
-            <span class="estado estado-activa">Activa</span>
-          </div>
-          <div class="detalle-reserva">
-            <p><strong>Pista:</strong> Jardín</p>
-            <p><strong>Fecha:</strong> 22/04/2026</p>
-            <p><strong>Hora inicio:</strong> 20:00</p>
-            <p><strong>Duración:</strong> 120 minutos</p>
-          </div>
-        </article>
-
-        <article class="tarjeta tarjeta-reserva tarjeta-reserva-cancelada">
-          <div class="reserva-top">
-            <h3>Reserva #003</h3>
-            <span class="estado estado-cancelada">Cancelada</span>
-          </div>
-          <div class="detalle-reserva">
-            <p><strong>Pista:</strong> Lima Pro</p>
-            <p><strong>Fecha:</strong> 10/04/2026</p>
-            <p><strong>Hora inicio:</strong> 17:00</p>
-            <p><strong>Duración:</strong> 60 minutos</p>
-          </div>
-        </article>
-      </div>
+      <div id="lista-reservas" class="tarjetas una-columna"></div>
     </section>
   </main>
 
@@ -125,6 +86,8 @@
     </div>
   </footer>
 
+  <div id="aviso" style="margin-top:1rem;font-weight:bold;"></div>
+  <script src="verReserva.js"></script>
 </body>
 
 </html>

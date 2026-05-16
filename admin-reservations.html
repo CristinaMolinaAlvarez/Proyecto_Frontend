@@ -25,7 +25,7 @@
         <div class="perfil">
           <span class="perfil-rol perfil-rol-admin">ADMIN</span>
           <a href="admin-home.html" class="usuario-icono">⚙</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
 
     <section class="caja">
       <h2>Filtros visuales</h2>
-      <form class="formulario formulario-filtros" action="#" method="get">
+      <form id="form-filtros-admin" class="formulario formulario-filtros" action="#" method="get">
         <div class="rejilla-formulario tres-campos">
           <div class="campo">
             <label for="date">Fecha</label>
@@ -91,35 +91,7 @@
               <th>Estado</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>101</td>
-              <td>Usuario 7</td>
-              <td>Pista 1</td>
-              <td>18/04/2026</td>
-              <td>19:00</td>
-              <td>60 min</td>
-              <td>ACTIVA</td>
-            </tr>
-            <tr>
-              <td>102</td>
-              <td>Usuario 12</td>
-              <td>Pista 2</td>
-              <td>18/04/2026</td>
-              <td>20:00</td>
-              <td>120 min</td>
-              <td>ACTIVA</td>
-            </tr>
-            <tr>
-              <td>103</td>
-              <td>Usuario 5</td>
-              <td>Pista 3</td>
-              <td>17/04/2026</td>
-              <td>18:00</td>
-              <td>60 min</td>
-              <td>CANCELADA</td>
-            </tr>
-          </tbody>
+          <tbody id="tbody-reservas"></tbody>
         </table>
       </div>
     </section>
@@ -153,6 +125,9 @@
   </footer>
 
 
+  <div id="aviso" style="text-align:center; margin:1rem 0;"></div>
+  <script src="admin.js"></script>
+  <script>iniciarAdminReservations();</script>
 </body>
 
 </html>

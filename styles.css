@@ -815,3 +815,70 @@ small {
   }
 
 }
+
+/* ── Acciones de reserva (Modificar / Cancelar) ─────────────────────────── */
+.reserva-acciones {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-borde, #e5e7eb);
+}
+
+.boton-cancelar {
+  background-color: transparent;
+  color: #c0392b;
+  border: 1.5px solid #c0392b;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.boton-cancelar:hover {
+  background-color: #c0392b;
+  color: #fff;
+}
+
+/* ── Perfil: secciones de la página de perfil ────────────────────────────── */
+.perfil-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.perfil-info-grid dt {
+  font-weight: 600;
+  color: var(--color-texto-suave, #6b7280);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.perfil-info-grid dd {
+  margin: 0;
+  color: var(--color-texto, #111827);
+}
+
+.zona-peligro {
+  border: 1.5px solid #e74c3c;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+.zona-peligro h2 {
+  color: #c0392b;
+  margin-bottom: 0.5rem;
+}
+
+.boton-peligro {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.boton-peligro:hover {
+  background-color: #c0392b;
+}

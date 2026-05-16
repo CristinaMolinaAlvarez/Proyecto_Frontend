@@ -24,8 +24,9 @@
 
         <div class="perfil">
           <span class="perfil-rol perfil-rol-admin">ADMIN</span>
+          <span id="admin-email" style="font-size:0.85rem; color:#666;"></span>
           <a href="admin-home.html" class="usuario-icono">⚙</a>
-          <a href="index.html" class="boton boton-secundario">Cerrar sesión</a>
+          <button type="button" class="boton boton-secundario" onclick="logout()">Cerrar sesión</button>
         </div>
       </div>
 
@@ -107,6 +108,8 @@
     </div>
   </footer>
 
+  <script src="admin.js"></script>
+  <script>iniciarAdminHome();</script>
 </body>
 
 </html>
