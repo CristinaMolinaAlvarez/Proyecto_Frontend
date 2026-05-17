@@ -18,6 +18,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
+import org.springframework.http.HttpMethod;
+
 import java.util.List;
 
 @Configuration
@@ -42,6 +44,10 @@ public class ConfiguracionSeguridad {
                         .requestMatchers("/pistaPadel/auth/login").permitAll()
                         .requestMatchers("/pistaPadel/health").permitAll()
                         .requestMatchers("/error").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/pistaPadel/courts").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/pistaPadel/courts/{courtId}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/pistaPadel/availability").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/pistaPadel/courts/{courtId}/availability").permitAll()
                         .anyRequest().authenticated()
                 )
 
