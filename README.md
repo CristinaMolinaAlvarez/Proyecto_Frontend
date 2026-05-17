@@ -3,7 +3,6 @@
 Aplicación web para la gestión de reservas de pistas de pádel desarrollada como proyecto final de Programación de Aplicaciones Telemáticas (PAT).
 
 Proyecto realizado por:
-
 - Cristina Molina
 - Carla Rodríguez
 - Paula Díez
@@ -11,12 +10,11 @@ Proyecto realizado por:
 
 ---
 
-# Descripción
+## Descripción
 
 Pádel Point es una aplicación web completa para la gestión de reservas de pistas de pádel.
 
 La aplicación permite:
-
 - Consultar pistas disponibles
 - Consultar disponibilidad por fecha
 - Registrarse e iniciar sesión
@@ -26,7 +24,6 @@ La aplicación permite:
 - Administrar pistas y reservas mediante rol ADMIN
 
 El proyecto integra:
-
 - Frontend desarrollado con HTML, CSS y JavaScript
 - Backend REST desarrollado con Spring Boot
 - Comunicación cliente-servidor mediante Fetch API
@@ -38,10 +35,9 @@ El proyecto integra:
 
 ---
 
-# Tecnologías utilizadas
+## Tecnologías utilizadas
 
-## Backend
-
+### Backend
 - Java 21
 - Spring Boot
 - Spring Web
@@ -50,8 +46,7 @@ El proyecto integra:
 - Maven
 - JUnit
 
-## Frontend
-
+### Frontend
 - HTML5
 - CSS3
 - JavaScript
@@ -59,8 +54,7 @@ El proyecto integra:
 - DOM API
 - LocalStorage
 
-## Herramientas
-
+### Herramientas
 - IntelliJ IDEA
 - Visual Studio Code
 - Git
@@ -70,11 +64,11 @@ El proyecto integra:
 
 ---
 
-# Estructura del proyecto
+## Estructura del proyecto
 
 Durante el desarrollo se eliminó la carpeta `/frontend` y todos los archivos HTML, CSS y JS se movieron a la raíz del proyecto para permitir que GitHub Pages detectase correctamente `index.html`.
 
-```txt
+```
 /
 ├── index.html
 ├── login.html
@@ -116,24 +110,18 @@ Durante el desarrollo se eliminó la carpeta `/frontend` y todos los archivos HT
 
 ---
 
-# Roles de usuario
+## Roles de usuario
 
-## Usuario no autenticado
-
+### Usuario no autenticado
 Puede:
-
 - Acceder a la página principal
 - Consultar pistas
 - Consultar disponibilidad
 - Registrarse
 - Iniciar sesión
 
----
-
-## Usuario autenticado
-
+### Usuario autenticado
 Puede:
-
 - Acceder a su zona privada
 - Consultar pistas
 - Ver disponibilidad
@@ -142,12 +130,8 @@ Puede:
 - Consultar sus reservas
 - Gestionar su perfil
 
----
-
-## Administrador
-
+### Administrador
 Puede:
-
 - Acceder al dashboard de administración
 - Consultar todas las reservas
 - Filtrar reservas
@@ -156,12 +140,9 @@ Puede:
 
 ---
 
-# Frontend
+## Frontend
 
-El frontend está desarrollado completamente con HTML, CSS y JavaScript.
-
-La aplicación se diseñó con:
-
+El frontend está desarrollado completamente con HTML, CSS y JavaScript. La aplicación se diseñó con:
 - Separación clara por roles
 - Navegación coherente
 - Diseño responsive
@@ -169,20 +150,14 @@ La aplicación se diseñó con:
 - Componentes reutilizables
 - Estilo visual homogéneo
 
----
-
-# Páginas públicas
-
+### Páginas públicas
 - `index.html`
 - `login.html`
 - `register.html`
 - `courts-public.html`
 - `availability-public.html`
 
----
-
-# Páginas privadas de usuario
-
+### Páginas privadas de usuario
 - `user-home.html`
 - `courts-user.html`
 - `availability-user.html`
@@ -190,24 +165,18 @@ La aplicación se diseñó con:
 - `my-reservations.html`
 - `profile.html`
 
----
-
-# Páginas privadas de administrador
-
+### Páginas privadas de administrador
 - `admin-home.html`
 - `admin-courts.html`
 - `admin-reservations.html`
 
 ---
 
-# JavaScript
+## JavaScript
 
 La lógica cliente se implementó mediante JavaScript y Fetch API.
 
----
-
-# Funcionalidades implementadas
-
+### Funcionalidades implementadas
 - Registro de usuarios
 - Inicio de sesión
 - Logout
@@ -220,67 +189,37 @@ La lógica cliente se implementó mediante JavaScript y Fetch API.
 - Renderizado dinámico de tablas y tarjetas
 - Integración frontend-backend
 
----
+### Archivos JavaScript principales
 
-# Archivos JavaScript principales
-
-## login.js
-
-Gestiona:
-
+#### `login.js`
 - Inicio de sesión
 - Peticiones fetch de login
 - Guardado de datos de sesión
 - Redirección según rol
 
----
-
-## registro.js
-
-Gestiona:
-
+#### `registro.js`
 - Registro de usuario
 - Conversión FormData → JSON
 - Validaciones frontend
 - Comunicación con backend
 
----
-
-## reserva.js
-
-Gestiona:
-
+#### `reserva.js`
 - Creación de reservas
 - Envío de formularios
 - Basic Auth
 - Gestión de errores
 
----
-
-## availability-user.js
-
-Gestiona:
-
+#### `availability-user.js`
 - Consulta de disponibilidad
 - Renderizado dinámico de franjas horarias
 - Consulta por fecha y pista
 
----
-
-## verReserva.js
-
-Gestiona:
-
+#### `verReserva.js`
 - Carga de reservas del usuario
 - Cancelación de reservas
 - Estado ACTIVA/CANCELADA
 
----
-
-## admin.js
-
-Gestiona:
-
+#### `admin.js`
 - Protección de vistas admin
 - Activar/desactivar pistas
 - Consultar reservas
@@ -288,375 +227,227 @@ Gestiona:
 
 ---
 
-# Backend
+## Backend
 
 El backend está desarrollado como una API REST utilizando Spring Boot.
 
+### Controladores principales
+- `UsersController`
+- `CourtsController`
+- `AvailabilityController`
+- `AdminController`
+- `HealthController`
+
+### Entidades principales
+
+#### Usuario
+| Campo | Tipo |
+|---|---|
+| idUsuario | Long |
+| nombre | String |
+| apellidos | String |
+| email | String |
+| password | String |
+| telefono | String |
+| rol | Enum |
+
+Roles disponibles: `USER`, `ADMIN`
+
+#### Pista
+| Campo | Tipo |
+|---|---|
+| idPista | Long |
+| nombre | String |
+| ubicacion | String |
+| precioHora | Double |
+| activa | Boolean |
+
+#### Reserva
+| Campo | Tipo |
+|---|---|
+| idReserva | Long |
+| usuario | Usuario |
+| pista | Pista |
+| fechaReserva | LocalDate |
+| horaInicio | LocalTime |
+| duracionMinutos | Integer |
+| estado | Enum |
+
+Estados disponibles: `ACTIVA`, `CANCELADA`
+
+#### Disponibilidad
+| Campo | Tipo |
+|---|---|
+| idPista | Long |
+| fecha | LocalDate |
+| franjasDisponibles | List\<String\> |
+
 ---
 
-# Controladores principales
+## Seguridad
 
-- UsersController
-- CourtsController
-- AvailabilityController
-- AdminController
-- HealthController
+La aplicación utiliza Spring Security con Basic Authentication y roles USER y ADMIN.
 
----
-
-# Entidades principales
-
-## Usuario
-
-Campos principales:
-
-- idUsuario
-- nombre
-- apellidos
-- email
-- password
-- telefono
-- rol
-
-Roles:
-
-```txt
-USER
-ADMIN
+El frontend almacena temporalmente en `localStorage`:
 ```
-
----
-
-## Pista
-
-Campos principales:
-
-- idPista
-- nombre
-- ubicacion
-- precioHora
-- activa
-
----
-
-## Reserva
-
-Campos principales:
-
-- idReserva
-- usuario
-- pista
-- fechaReserva
-- horaInicio
-- duracionMinutos
-- estado
-
-Estados:
-
-```txt
-ACTIVA
-CANCELADA
-```
-
----
-
-## Disponibilidad
-
-Campos principales:
-
-- idPista
-- fecha
-- franjasDisponibles
-
----
-
-# Seguridad
-
-La aplicación utiliza:
-
-- Spring Security
-- Basic Authentication
-- Roles USER y ADMIN
-
-El frontend almacena temporalmente:
-
-```txt
 usuarioEmail
 usuarioPassword
 usuarioRol
 usuarioId
 ```
 
-mediante `localStorage`.
-
 ---
 
-# Usuarios de prueba
+## Usuarios de prueba
 
-## ADMIN
-
-```txt
-Email: admin@padel.com
-Password: admin
-Rol: ADMIN
+### ADMIN
 ```
-
-Este usuario administrador se crea automáticamente al arrancar la aplicación mediante el `CommandLineRunner`.
-
----
-
-## USERS DE EJEMPLO
+Email:    admin@padel.com
+Password: admin
+Rol:      ADMIN
+```
+> Este usuario se crea automáticamente al arrancar la aplicación mediante el `CommandLineRunner`.
 
 ### Usuario 1
-
-```txt
-Email: ana@padelpoint.com
+```
+Email:    ana@padelpoint.com
 Password: password123
-Rol: USER
+Rol:      USER
 ```
 
 ### Usuario 2
-
-```txt
-Email: carlos@padelpoint.com
+```
+Email:    carlos@padelpoint.com
 Password: password123
-Rol: USER
+Rol:      USER
 ```
 
 ---
 
-# Datos iniciales cargados automáticamente
+## Datos iniciales cargados automáticamente
 
-## Pistas iniciales
+### Pistas
 
 | ID | Nombre | Ubicación | Precio |
 |---|---|---|---|
-| 1 | Central Indoor | Interior | 18€ |
-| 2 | Jardín | Exterior | 16€ |
-| 3 | Lima Pro | Interior | 20€ |
+| 1 | Central Indoor | Interior | 18 € |
+| 2 | Jardín | Exterior | 16 € |
+| 3 | Lima Pro | Interior | 20 € |
+
+### Reservas
+
+| Usuario | Pista | Hora | Estado |
+|---|---|---|---|
+| Ana | Central Indoor | 10:00 – 11:00 | ACTIVA |
+| Carlos | Jardín | 18:00 – 20:00 | ACTIVA |
+| Ana | Lima Pro | — | CANCELADA |
 
 ---
 
-## Reservas iniciales
+## Endpoints principales
 
-### Reserva activa
+### Auth
+| Método | Endpoint | Auth |
+|---|---|---|
+| POST | `/pistaPadel/auth/register` | Pública |
+| POST | `/pistaPadel/auth/login` | Pública |
+| GET | `/pistaPadel/auth/me` | USER / ADMIN |
 
-```txt
-Usuario: Ana
-Pista: Central Indoor
-Hora: 10:00 - 11:00
-Estado: ACTIVA
-```
+### Pistas
+| Método | Endpoint | Auth |
+|---|---|---|
+| GET | `/pistaPadel/courts` | USER / ADMIN |
+| PATCH | `/pistaPadel/courts/{id}` | ADMIN |
 
-### Reserva activa
+### Reservas
+| Método | Endpoint | Auth |
+|---|---|---|
+| POST | `/pistaPadel/reservations` | USER |
+| GET | `/pistaPadel/reservations` | USER |
+| DELETE | `/pistaPadel/reservations/{id}` | USER |
 
-```txt
-Usuario: Carlos
-Pista: Jardín
-Hora: 18:00 - 20:00
-Estado: ACTIVA
-```
+### Disponibilidad
+| Método | Endpoint | Auth |
+|---|---|---|
+| GET | `/pistaPadel/availability` | Pública |
 
-### Reserva cancelada
+### Administración
+| Método | Endpoint | Auth |
+|---|---|---|
+| GET | `/pistaPadel/admin/reservations` | ADMIN |
 
-```txt
-Usuario: Ana
-Pista: Lima Pro
-Estado: CANCELADA
-```
-
----
-
-# Endpoints principales
-
-## Auth
-
-| Método | Endpoint |
-|---|---|
-| POST | /pistaPadel/auth/register |
-| POST | /pistaPadel/auth/login |
-| GET | /pistaPadel/auth/me |
+### Healthcheck
+| Método | Endpoint | Auth |
+|---|---|---|
+| GET | `/pistaPadel/health` | Pública |
 
 ---
 
-## Pistas
+## Capturas Frontend
 
-| Método | Endpoint |
-|---|---|
-| GET | /pistaPadel/courts |
-| PATCH | /pistaPadel/courts/{id} |
-
----
-
-## Reservas
-
-| Método | Endpoint |
-|---|---|
-| POST | /pistaPadel/reservations |
-| GET | /pistaPadel/reservations |
-| DELETE | /pistaPadel/reservations/{id} |
-
----
-
-## Disponibilidad
-
-| Método | Endpoint |
-|---|---|
-| GET | /pistaPadel/availability |
-
----
-
-## Administración
-
-| Método | Endpoint |
-|---|---|
-| GET | /pistaPadel/admin/reservations |
-
----
-
-## Healthcheck
-
-| Método | Endpoint |
-|---|---|
-| GET | /pistaPadel/health |
-
----
-
-# Capturas Frontend
-
-## Página principal
-
+### Página principal
 ![Página principal](images/capturas/front-index.png)
 
-![Página principal](images/capturas/front-index2.png)
-
----
-
-## Registro
-
+### Registro
 ![Registro](images/capturas/front-register.png)
 
----
-
-## Login USER
-
+### Login USER
 ![Login USER](images/capturas/front-login-user.png)
 
----
-
-## Login ADMIN
-
+### Login ADMIN
 ![Login ADMIN](images/capturas/front-login-admin.png)
 
----
-
-## Home usuario
-
+### Home usuario
 ![Home usuario](images/capturas/front-user-home.png)
-![Home usuario](images/capturas/front-user-home2.png)
-![Home usuario](images/capturas/front-user-home3.png)
 
----
-
-## Consulta pública de pistas
-
+### Consulta pública de pistas
 ![Pistas públicas](images/capturas/front-courts-public.png)
 
-![Pistas públicas](images/capturas/front-courts-public2.png)
-
-
----
-
-## Consulta pública de disponibilidad
-
+### Consulta pública de disponibilidad
 ![Disponibilidad pública](images/capturas/front-availability-public.png)
-![Disponibilidad pública](images/capturas/front-availability-public2.png)
 
----
-
-## Pistas usuario
-
+### Pistas usuario
 ![Pistas usuario](images/capturas/front-courts-user.png)
 
----
-
-## Disponibilidad usuario
-
+### Disponibilidad usuario
 ![Disponibilidad usuario](images/capturas/front-availability-user.png)
 
----
-
-## Crear reserva
-
+### Crear reserva
 ![Crear reserva](images/capturas/front-create-reservation.png)
 
----
-
-## Mis reservas
-
+### Mis reservas
 ![Mis reservas](images/capturas/front-my-reservations.png)
 
----
-
-## Perfil usuario
-
+### Perfil usuario
 ![Perfil usuario](images/capturas/front-profile.png)
 
----
-
-## Dashboard ADMIN
-
+### Dashboard ADMIN
 ![Dashboard admin](images/capturas/front-admin-home.png)
 
----
-
-## Gestión de pistas ADMIN
-
+### Gestión de pistas ADMIN
 ![Gestión pistas](images/capturas/front-admin-courts.png)
 
----
-
-## Gestión reservas ADMIN
-
+### Gestión reservas ADMIN
 ![Gestión reservas](images/capturas/front-admin-reservations.png)
 
 ---
 
-# PRUEBAS BACKEND (POSTMAN)
+## Pruebas Backend (Postman)
 
-Todas las pruebas backend se realizaron con Postman utilizando Basic Auth y los usuarios cargados automáticamente por la aplicación.
+Todas las pruebas se realizaron con Postman utilizando Basic Auth y los usuarios cargados automáticamente por la aplicación.
 
----
-
-# 1. Healthcheck
-
-## GET
-
-```txt
+### 1. Healthcheck
+```
 GET http://localhost:8080/pistaPadel/health
+→ 200 OK
 ```
-
-## Resultado esperado
-
-```txt
-200 OK
-ok
-```
-
 ![Healthcheck](images/capturas/postman-health.png)
 
----
-
-# 2. Registro correcto
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/auth/register
+### 2. Registro correcto
 ```
-
-## Body JSON
-
+POST http://localhost:8080/pistaPadel/auth/register
+→ 201 CREATED
+```
 ```json
 {
   "nombre": "Laura",
@@ -666,145 +457,64 @@ POST http://localhost:8080/pistaPadel/auth/register
   "password": "password123"
 }
 ```
-
-## Resultado esperado
-
-```txt
-201 CREATED
-```
-
 ![Registro correcto](images/capturas/postman-register-ok.png)
 
----
-
-# 3. Registro duplicado
-
-Repetir el mismo registro anterior.
-
-## Resultado esperado
-
-```txt
-409 CONFLICT
+### 3. Registro duplicado
 ```
-
+POST http://localhost:8080/pistaPadel/auth/register  (mismo email)
+→ 409 CONFLICT
+```
 ![Registro duplicado](images/capturas/postman-register-duplicado.png)
 
----
-
-# 4. Login USER
-
-## POST
-
-```txt
+### 4. Login USER
+```
 POST http://localhost:8080/pistaPadel/auth/login
+Basic Auth: ana@padelpoint.com / password123
+→ 200 OK
 ```
-
-## Basic Auth
-
-```txt
-Email: ana@padelpoint.com
-Password: password123
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
 ![Login USER](images/capturas/postman-login-user.png)
 
----
-
-# 5. Login ADMIN
-
-## POST
-
-```txt
+### 5. Login ADMIN
+```
 POST http://localhost:8080/pistaPadel/auth/login
+Basic Auth: admin@padel.com / admin
+→ 200 OK
 ```
-
-## Basic Auth
-
-```txt
-Email: admin@padel.com
-Password: admin123
-```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
 ![Login ADMIN](images/capturas/postman-login-admin.png)
 
----
-
-# 6. Obtener usuario autenticado
-
-## GET
-
-```txt
+### 6. Obtener usuario autenticado
+```
 GET http://localhost:8080/pistaPadel/auth/me
+→ 200 OK
 ```
-
-## Resultado esperado
-
-```txt
-200 OK
-```
-
 ![Usuario autenticado](images/capturas/postman-auth-me.png)
 
----
-
-# 7. Consultar pistas
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/courts
+### 7. Consultar pistas
 ```
-
+GET http://localhost:8080/pistaPadel/courts
+→ 200 OK
+```
 ![Consultar pistas](images/capturas/postman-courts.png)
 
----
-
-# 8. Consultar disponibilidad general
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/availability?date=2026-05-20
+### 8. Consultar disponibilidad general
 ```
-
+GET http://localhost:8080/pistaPadel/availability?date=2026-05-20
+→ 200 OK
+```
 ![Disponibilidad general](images/capturas/postman-availability-general.png)
 
----
-
-# 9. Consultar disponibilidad de una pista
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/availability?date=2026-05-20&courtId=1
+### 9. Consultar disponibilidad de una pista
 ```
-
+GET http://localhost:8080/pistaPadel/availability?date=2026-05-20&courtId=1
+→ 200 OK
+```
 ![Disponibilidad pista](images/capturas/postman-availability-court.png)
 
----
-
-# 10. Crear reserva
-
-## POST
-
-```txt
-POST http://localhost:8080/pistaPadel/reservations
+### 10. Crear reserva
 ```
-
-## Body JSON
-
+POST http://localhost:8080/pistaPadel/reservations
+→ 201 CREATED
+```
 ```json
 {
   "idPista": 1,
@@ -813,202 +523,133 @@ POST http://localhost:8080/pistaPadel/reservations
   "duracionMinutos": 60
 }
 ```
-
 ![Crear reserva](images/capturas/postman-create-reservation.png)
 
----
-
-# 11. Reserva duplicada
-
-Intentar reservar la misma pista y hora.
-
-## Resultado esperado
-
-```txt
-409 CONFLICT
+### 11. Reserva duplicada
 ```
-
+POST http://localhost:8080/pistaPadel/reservations  (misma pista y hora)
+→ 409 CONFLICT
+```
 ![Reserva duplicada](images/capturas/postman-reservation-conflict.png)
 
----
-
-# 12. Ver reservas usuario
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/reservations
+### 12. Ver reservas del usuario
 ```
-
+GET http://localhost:8080/pistaPadel/reservations
+→ 200 OK
+```
 ![Reservas usuario](images/capturas/postman-my-reservations.png)
 
----
-
-# 13. Obtener reserva concreta
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/reservations/{id}
+### 13. Obtener reserva concreta
 ```
-
+GET http://localhost:8080/pistaPadel/reservations/{id}
+→ 200 OK
+```
 ![Reserva concreta](images/capturas/postman-get-reservation.png)
 
----
-
-# 14. Cancelar reserva
-
-## DELETE
-
-```txt
-DELETE http://localhost:8080/pistaPadel/reservations/{id}
+### 14. Cancelar reserva
 ```
-
+DELETE http://localhost:8080/pistaPadel/reservations/{id}
+→ 204 NO CONTENT
+```
 ![Cancelar reserva](images/capturas/postman-delete-reservation.png)
 
----
-
-# 15. Reservas ADMIN
-
-## GET
-
-```txt
-GET http://localhost:8080/pistaPadel/admin/reservations
+### 15. Reservas ADMIN
 ```
-
+GET http://localhost:8080/pistaPadel/admin/reservations
+→ 200 OK
+```
 ![Reservas admin](images/capturas/postman-admin-reservations.png)
 
----
-
-# 16. Filtro ADMIN por pista
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?courtId=1
+### 16. Filtro ADMIN por pista
 ```
-
+GET /pistaPadel/admin/reservations?courtId=1
+→ 200 OK
+```
 ![Filtro pista](images/capturas/postman-admin-filter-court.png)
 
----
-
-# 17. Filtro ADMIN por fecha
-
-## GET
-
-```txt
-GET /pistaPadel/admin/reservations?date=2026-05-20
+### 17. Filtro ADMIN por usuario
 ```
+GET /pistaPadel/admin/reservations?userId=1
+→ 200 OK
+```
+![Filtro usuario](images/capturas/postman-admin-filter-user.png)
 
+### 18. Filtro ADMIN por fecha
+```
+GET /pistaPadel/admin/reservations?date=2026-05-20
+→ 200 OK
+```
 ![Filtro fecha](images/capturas/postman-admin-filter-date.png)
 
----
-
-# 18. Acceso denegado USER → ADMIN
-
-Intentar acceder como USER a endpoint ADMIN.
-
-## Resultado esperado
-
-```txt
-403 FORBIDDEN
+### 19. Activar/desactivar pista
 ```
+PATCH http://localhost:8080/pistaPadel/courts/1
+→ 200 OK
+```
+```json
+{
+  "activa": false
+}
+```
+![Patch pista](images/capturas/postman-patch-court.png)
 
+### 20. Acceso denegado USER → endpoint ADMIN
+```
+GET /pistaPadel/admin/reservations  (con credenciales USER)
+→ 403 FORBIDDEN
+```
 ![Error 403](images/capturas/postman-403-admin.png)
 
----
-
-# 19. Endpoint protegido sin login
-
-Intentar acceder sin autenticación a endpoint protegido.
-
-## Resultado esperado
-
-```txt
-401 UNAUTHORIZED
+### 21. Endpoint protegido sin autenticación
 ```
-
+GET /pistaPadel/reservations  (sin credenciales)
+→ 401 UNAUTHORIZED
+```
 ![Error 401](images/capturas/postman-401-noauth.png)
 
----
-
-# 20. Login incorrecto
-
-Intentar login con contraseña incorrecta.
-
-## Resultado esperado
-
-```txt
-401 UNAUTHORIZED
+### 22. Login incorrecto
 ```
-
+POST /pistaPadel/auth/login  (contraseña incorrecta)
+→ 401 UNAUTHORIZED
+```
 ![Login incorrecto](images/capturas/postman-login-error.png)
 
----
-
-# 21. Reserva en pista inexistente
-
-Intentar reservar una pista inexistente.
-
-## Resultado esperado
-
-```txt
-404 NOT FOUND
+### 23. Reserva en pista inexistente
 ```
-
+POST /pistaPadel/reservations  (idPista no existe)
+→ 404 NOT FOUND
+```
 ![Reserva pista inexistente](images/capturas/postman-court-notfound.png)
 
----
-
-# 22. Consulta disponibilidad fecha inválida
-
-## GET
-
-```txt
+### 24. Disponibilidad con fecha inválida
+```
 GET /pistaPadel/availability?date=fecha-invalida
+→ 400 BAD REQUEST
 ```
-
-## Resultado esperado
-
-```txt
-400 BAD REQUEST
-```
-
 ![Fecha inválida](images/capturas/postman-invalid-date.png)
 
----
-
-# 23. Desactivar pista y comprobar reservas
-
-Intentar reservar pista desactivada.
-
-## Resultado esperado
-
-```txt
-409 CONFLICT
+### 25. Reservar pista desactivada
 ```
-
+POST /pistaPadel/reservations  (pista con activa=false)
+→ 409 CONFLICT
+```
 ![Pista desactivada](images/capturas/postman-disabled-court.png)
 
 ---
 
-# Validaciones implementadas
+## Validaciones implementadas
 
-## Frontend
-
+### Frontend
 - Campos obligatorios
-- Validación email
+- Validación de email
 - Confirmación de contraseña
-- Pattern teléfono
-- Validación formularios
+- Pattern de teléfono (9 dígitos)
+- Validación de formularios
 - Duraciones permitidas
 
----
-
-## Backend
-
+### Backend
 - Usuario duplicado
-- Reserva inválida
+- Reserva en conflicto de horario
 - Recursos inexistentes
 - Accesos sin permisos
 - Validaciones REST
@@ -1016,88 +657,43 @@ Intentar reservar pista desactivada.
 
 ---
 
-# Flujo principal de la aplicación
+## Flujo principal de la aplicación
 
-## Usuario público
+### Usuario público
+```
+Inicio → Consulta pistas/disponibilidad → Registro/Login
+```
 
-```txt
-Inicio
-↓
-Consulta pistas/disponibilidad
-↓
-Registro/Login
+### Usuario autenticado
+```
+Login → Zona privada → Consultar disponibilidad → Crear reserva → Gestionar reservas
+```
+
+### Administrador
+```
+Login ADMIN → Dashboard admin → Gestionar pistas → Consultar reservas → Aplicar filtros
 ```
 
 ---
 
-## Usuario autenticado
+## Despliegue
 
-```txt
-Login
-↓
-Zona privada
-↓
-Consultar disponibilidad
-↓
-Crear reserva
-↓
-Gestionar reservas
+### Frontend — GitHub Pages
 ```
-
----
-
-## Administrador
-
-```txt
-Login ADMIN
-↓
-Dashboard admin
-↓
-Gestionar pistas
-↓
-Consultar reservas
-↓
-Aplicar filtros
-```
-
----
-
-# Despliegue
-
-## Frontend
-
-GitHub Pages:
-
-```txt
 AÑADIR ENLACE
 ```
 
----
-
-## Repositorio GitHub
-
-```txt
+### Repositorio GitHub
+```
 https://github.com/CristinaMolinaAlvarez/Proyecto_Frontend
 ```
 
 ---
 
-# Conclusión
+## Conclusión
 
-Pádel Point es una aplicación web completa para la gestión de reservas de pistas de pádel.
+Pádel Point es una aplicación web completa para la gestión de reservas de pistas de pádel. El proyecto integra frontend, backend y JavaScript mediante arquitectura REST y separación por roles.
 
-El proyecto integra frontend, backend y JavaScript mediante arquitectura REST y separación por roles. Durante el desarrollo se aplicaron conceptos de:
-
-- HTML estructurado
-- CSS responsive
-- JavaScript moderno
-- Fetch API
-- Spring Boot
-- Seguridad
-- Roles y autenticación
-- Validaciones
-- Integración cliente-servidor
-- Testing manual con Postman
-- Despliegue web
+Durante el desarrollo se aplicaron conceptos de HTML estructurado, CSS responsive, JavaScript moderno con Fetch API, Spring Boot con Spring Security, gestión de roles y autenticación, validaciones cliente y servidor, integración cliente-servidor, testing manual con Postman y despliegue web.
 
 El resultado final es una aplicación funcional, organizada y preparada para futuras ampliaciones.

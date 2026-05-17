@@ -1,66 +1,72 @@
 console.log("RESERVATION JS CARGADO");
-//en intelli j const API_URL = "";
+
 const API_URL = "http://localhost:8080";
 
-// cuando la pagina haya cargado, ejecuta esto:
 document.addEventListener("DOMContentLoaded", function () {
-  //busca el formulario por su id 
+  const email    = localStorage.getItem("usuarioEmail");
+  const password = localStorage.getItem("usuarioPassword");
+
+  if (!email || !password) {
+    location.href = "login.html";
+    return;
+  }
+
   const form = document.getElementById("form-reserva");
 
-  //cuando se envie el formulario, ejecuta esta funcion
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-    //ahora este sera el formulario de pista con su fecha hora
     const datosJsonFormulario = form2json(event);
     reservar(datosJsonFormulario);
   });
 
-
   function reservar(datosJsonFormulario) {
-  console.log("RESERVA:", datosJsonFormulario);
+    console.log("RESERVA:", datosJsonFormulario);
+    console.log("EMAIL AUTH:", email);
 
-  const email = localStorage.getItem("usuarioEmail");
-  const password = localStorage.getItem("usuarioPassword");
+    fetch(`${API_URL}/pistaPadel/reservations`, {
+      method: "POST",
+      body: datosJsonFormulario,
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Basic " + btoa(email + ":" + password)
+      }
+    })
+    .then(response => {
+      console.log("Status reserva:", response.status);
+      if (response.status === 401) {
+        location.href = "login.html";
+        return;
+      }
+      if (response.ok) {
+        location.href = "my-reservations.html";
+      } else {
+        mostrarAviso("✖︎ Error en la reserva: " + response.status, "error");
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      mostrarAviso("✖︎ No se pudo conectar con el backend", "error");
+    });
+  }
 
-  console.log("EMAIL AUTH:", email);
-  console.log("PASSWORD AUTH:", password);
-  //mandamos peticion y cnectamos con el backend 
-  fetch(`${API_URL}/pistaPadel/reservations`, {
-    method: "POST",
-    body: datosJsonFormulario,
-    headers: {
-      "Content-Type": "application/json",
-      // LOGIN BASIC AUTH, forzamos un usuario y contraseña para probar la reserva, en este caso el usuario es
-      //TENEMOS QUE CREAR EMAIL Y PASSWORD EN LOCALSTORAGE PARA QUE FUNCIONE, LO HACEMOS EN LOGIN.JS
-      "Authorization": "Basic " + btoa(email + ":" + password)    }
-  })
-  .then(response => {
-    console.log("Status reserva:", response.status);
-    if (response.ok) {
-      location.href = "my-reservations.html";
-    } else {
-      mostrarAviso("✖︎ Error en la reserva: " + response.status, "error");
-    }
-  })
-  .catch(error => {
-    console.error(error);
-    mostrarAviso("✖︎ No se pudo conectar con el backend", "error");
-  });
-}
+  function mostrarAviso(texto, tipo) {
+    const aviso = document.getElementById("aviso");
+    aviso.textContent = texto;
+    aviso.style.color = tipo === "error" ? "red" : "green";
+    aviso.className = tipo;
+  }
 
-function mostrarAviso(texto, tipo) {
-  const aviso = document.getElementById("aviso");
-  aviso.textContent = texto;
-  aviso.style.color = tipo === "error" ? "red" : "green";
-  aviso.className = tipo;
-}
-
-function form2json(event) {
-  //evita que se vaya a otra pagina directamente al enviar el formulario
-  event.preventDefault();
-  //lee todos los inputs del form y los convierte a un objeto JSON
-  const data = new FormData(event.target);
-  return JSON.stringify(Object.fromEntries(data.entries()));
-}
-
+  function form2json(event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    return JSON.stringify(Object.fromEntries(data.entries()));
+  }
 });
+
+function logout() {
+  localStorage.removeItem("usuarioId");
+  localStorage.removeItem("usuarioEmail");
+  localStorage.removeItem("usuarioPassword");
+  localStorage.removeItem("usuarioRol");
+  location.href = "login.html";
+}

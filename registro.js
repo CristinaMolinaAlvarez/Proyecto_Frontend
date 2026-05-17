@@ -2,7 +2,7 @@ console.log("REGISTRO JS CARGADO");
 //en intelli j const API_URL = "";
 const API_URL = "http://localhost:8080";
 
-// cuando la pagina haya cargado, ejecutamos esto:
+// cuando la pagina haya cargado, ejecuta esto:
 document.addEventListener("DOMContentLoaded", function () {
   //busca el formulario por su id 
   const form = document.getElementById("form-registro");
@@ -57,3 +57,80 @@ function form2json(event) {
 }
 
 
+
+/*
+SI TENEMOS QUE VALIDAR CONTRASEÑA DOS VECES: 
+
+//Validacion frontend, no usa backend , no usa fetch, no guarda nada
+//comprueba si las dos contraseñas son iguales al registrarse
+function compruebaPass() {
+  let correcto = false;
+  correcto = document.getElementById("password").value === 
+             document.getElementById("password2").value;
+  if (correcto) mostrarAviso();
+  else mostrarAviso('✖︎ Contraseña inválida', 'error');
+  return correcto;
+}
+
+
+
+METODO GET
+async function cargarUsuarios() {
+
+  const res = await fetch('/api/users');
+
+  const usuarios = await res.json();
+
+  console.log(usuarios);
+
+
+
+  METODO POST
+  async function login(datos) {
+
+  const res = await fetch('/api/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(datos)
+  });
+
+  if (res.ok) {
+    console.log("login correcto");
+  }
+}
+
+
+
+  EN GENERAL USAREMOS:
+  async function peticion() {
+
+  try {
+
+    const res = await fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(datos)
+    });
+
+    if (res.ok) {
+
+      const json = await res.json();
+
+      console.log(json);
+
+    } else {
+
+      console.log(res.status);
+
+    }
+
+  } catch(error) {
+
+    console.error(error);
+  }
+}
+}*/

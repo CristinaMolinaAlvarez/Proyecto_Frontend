@@ -3,8 +3,15 @@ console.log("AVAILABILITY USER JS CARGADO");
 const API_URL = "http://localhost:8080";
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("form-disponibilidad");
+  const email    = localStorage.getItem("usuarioEmail");
+  const password = localStorage.getItem("usuarioPassword");
 
+  if (!email || !password) {
+    location.href = "login.html";
+    return;
+  }
+
+  const form = document.getElementById("form-disponibilidad");
   form.addEventListener("submit", function (event) {
     event.preventDefault();
     cargarDisponibilidad();
@@ -12,33 +19,39 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function cargarDisponibilidad() {
-  const fecha   = document.getElementById("date").value;
-  const courtId = document.getElementById("courtId").value;
+  const email    = localStorage.getItem("usuarioEmail");
+  const password = localStorage.getItem("usuarioPassword");
+  const fecha    = document.getElementById("date").value;
+  const courtId  = document.getElementById("courtId").value;
 
   let url = `${API_URL}/pistaPadel/availability?date=${fecha}`;
-
   if (courtId !== "") {
     url += `&courtId=${courtId}`;
   }
 
   console.log("URL disponibilidad:", url);
 
-  // Este endpoint es público, no requiere autenticación
-  fetch(url, { method: "GET" })
+  fetch(url, {
+    method: "GET",
+    headers: {
+      "Authorization": "Basic " + btoa(email + ":" + password)
+    }
+  })
   .then(response => {
     console.log("Status disponibilidad:", response.status);
 
+    if (response.status === 401) {
+      location.href = "login.html";
+      return null;
+    }
     if (!response.ok) {
       mostrarAviso("✖︎ Error al cargar disponibilidad: " + response.status, "error");
       return null;
     }
-
     return response.json();
   })
   .then(datos => {
     if (!datos) return;
-
-    // El backend puede devolver un objeto (una pista) o un array (todas las pistas)
     const disponibilidad = Array.isArray(datos) ? datos : [datos];
     console.log("Disponibilidad recibida:", disponibilidad);
     pintarDisponibilidad(disponibilidad);
@@ -60,7 +73,6 @@ function pintarDisponibilidad(disponibilidad) {
   let html = "";
 
   disponibilidad.forEach(pista => {
-    // El campo en el backend se llama "franjasDisponibles"
     const slots = pista.franjasDisponibles || [];
 
     html += `
@@ -86,13 +98,20 @@ function pintarHoras(slots) {
   if (!slots || slots.length === 0) {
     return "<p>No hay horas disponibles.</p>";
   }
-
   return slots.map(hora => `<span>${hora}</span>`).join("");
+}
+
+function logout() {
+  localStorage.removeItem("usuarioId");
+  localStorage.removeItem("usuarioEmail");
+  localStorage.removeItem("usuarioPassword");
+  localStorage.removeItem("usuarioRol");
+  location.href = "login.html";
 }
 
 function mostrarAviso(texto, tipo) {
   const aviso = document.getElementById("aviso");
-  aviso.textContent     = texto;
-  aviso.style.color     = tipo === "error" ? "#c0392b" : "#27ae60";
+  aviso.textContent      = texto;
+  aviso.style.color      = tipo === "error" ? "#c0392b" : "#27ae60";
   aviso.style.fontWeight = "bold";
 }

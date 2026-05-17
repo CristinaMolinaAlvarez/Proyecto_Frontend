@@ -2,8 +2,8 @@ console.log("ADMIN JS CARGADO");
 
 const API_URL = "http://localhost:8080";
 
-//comprueba que hay sesión activa con rol ADMIN
-// Si no, redirige al login. Llamamos al inicio de cada página admin.
+// ── Guard: comprueba que hay sesión activa con rol ADMIN ──────────────────────
+// Si no, redirige al login. Llamar al inicio de cada página admin.
 function verificarAdmin() {
   const email    = localStorage.getItem("usuarioEmail");
   const password = localStorage.getItem("usuarioPassword");
@@ -15,7 +15,7 @@ function verificarAdmin() {
   }
 
   if (rol !== "ADMIN") {
-    // Es usuario normal, lo mandamos a su página
+    // Es usuario normal, mandamos a su zona
     location.href = "user-home.html";
     return false;
   }
@@ -23,14 +23,14 @@ function verificarAdmin() {
   return true;
 }
 
-//Cabecera de autorización para todas las peticiones
+// ── Cabecera de autorización para todas las peticiones ────────────────────────
 function authHeader() {
   const email    = localStorage.getItem("usuarioEmail");
   const password = localStorage.getItem("usuarioPassword");
   return { "Authorization": "Basic " + btoa(email + ":" + password) };
 }
 
-//Logout: limpia localStorage y vuelve al login
+// ── Logout: limpia localStorage y vuelve al login ─────────────────────────────
 function logout() {
   localStorage.removeItem("usuarioId");
   localStorage.removeItem("usuarioEmail");
@@ -39,8 +39,10 @@ function logout() {
   location.href = "login.html";
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// ADMIN-COURTS: cargar pistas del backend y gestión básica
+// ═══════════════════════════════════════════════════════════════════════════════
 
-// ADMIN-COURTS: carga pistas del backend y realiza la gestión básica
 function iniciarAdminCourts() {
   if (!verificarAdmin()) return;
   cargarPistas();
@@ -113,8 +115,9 @@ function toggleActivarPista(idPista, estaActiva, boton) {
   });
 }
 
-
+// ═══════════════════════════════════════════════════════════════════════════════
 // ADMIN-RESERVATIONS: cargar todas las reservas con filtros
+// ═══════════════════════════════════════════════════════════════════════════════
 
 function iniciarAdminReservations() {
   if (!verificarAdmin()) return;
@@ -122,7 +125,7 @@ function iniciarAdminReservations() {
   // Cargar todas las reservas al entrar
   cargarReservasAdmin();
 
-  // Filtros: se aplican al enviar el formulario
+  // Filtros: aplicar al enviar el formulario
   const form = document.getElementById("form-filtros-admin");
   if (form) {
     form.addEventListener("submit", function (event) {
@@ -189,8 +192,10 @@ function pintarTablaReservas(reservas) {
   `).join("");
 }
 
-
+// ═══════════════════════════════════════════════════════════════════════════════
 // ADMIN-HOME: verificar sesión y mostrar nombre
+// ═══════════════════════════════════════════════════════════════════════════════
+
 function iniciarAdminHome() {
   if (!verificarAdmin()) return;
 

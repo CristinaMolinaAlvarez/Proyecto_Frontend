@@ -3,6 +3,12 @@ console.log("MIS RESERVAS JS CARGADO");
 const API_URL = "http://localhost:8080";
 
 document.addEventListener("DOMContentLoaded", function () {
+  const email    = localStorage.getItem("usuarioEmail");
+  const password = localStorage.getItem("usuarioPassword");
+  if (!email || !password) {
+    location.href = "login.html";
+    return;
+  }
   cargarReservas();
 });
 
@@ -114,6 +120,14 @@ function cancelarReserva(idReserva, boton) {
     console.error(error);
     mostrarAviso("✖︎ No se pudo conectar con el backend", "error");
   });
+}
+
+function logout() {
+  localStorage.removeItem("usuarioId");
+  localStorage.removeItem("usuarioEmail");
+  localStorage.removeItem("usuarioPassword");
+  localStorage.removeItem("usuarioRol");
+  location.href = "login.html";
 }
 
 function mostrarAviso(texto, tipo) {
